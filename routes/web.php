@@ -26,7 +26,16 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/', [HomeController::class, 'home']);
 	Route::get('dashboard', function () {
-		return view('dashboard');
+
+        $viewName ='hr.views::dashboard';
+
+        // Check view existence
+        if (view()->exists($viewName)) {
+            return view($viewName);
+        }
+
+        return view('dashboard');
+
 	})->name('dashboard');
 
 	Route::get('billing', function () {
