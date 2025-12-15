@@ -1,0 +1,122 @@
+<?php
+
+return [
+    [
+    'itemType' => 'item-separator',
+    'title' => '<h6 class="ps-3 mt-4 mb-2 text-uppercase text-xs font-weight-bolder opacity-6 group-title">Organization</h6>',
+    'url' => null,
+],
+    [
+    'title' => 'Departments',
+    'icon' => 'fas fa-sitemap',
+    'url' => 'hr/departments',
+    'permission' => 'view_department',
+    'groupTitle' => 'Organization',
+],
+    [
+    'title' => 'Job Titles',
+    'icon' => 'fas fa-briefcase',
+    'url' => 'hr/job-titles',
+    'permission' => 'view_job_title',
+    'groupTitle' => 'Organization',
+],
+    [
+    'title' => 'Employees',
+    'icon' => 'fas fa-user-friends',
+    'url' => 'hr/employees',
+    'permission' => 'view_employee',
+],
+    [
+    'title' => 'Job Information',
+    'icon' => 'fas fa-briefcase',
+    'url' => 'hr/employee-positions',
+    'permission' => 'view_employee_position',
+],
+    [
+    'title' => 'Profiles',
+    'icon' => 'fas fa-user-circle',
+    'url' => 'hr/employee-profiles',
+    'permission' => 'view_employee_profile',
+],
+    [
+    'itemType' => 'item-separator',
+    'title' => '<h6 class="ps-3 mt-4 mb-2 text-uppercase text-xs font-weight-bolder opacity-6 group-title">People Management</h6>',
+    'url' => null,
+],
+    [
+    'title' => 'Documents',
+    'icon' => 'fas fa-file',
+    'url' => 'hr/documents',
+    'permission' => 'view_document',
+    'groupTitle' => 'People Management',
+],
+    [
+    'title' => 'Pay Schedules',
+    'icon' => 'fas fa-calendar-alt',
+    'url' => 'hr/pay-schedules',
+    'permission' => 'view_pay_schedule',
+],
+    [
+    'title' => 'Employees',
+    'icon' => 'fas fa-user-tie',
+    'url' => 'hr/employee-payroll-profiles',
+    'permission' => 'view_employee_payroll_profile',
+],
+    [
+    'title' => 'Pay Runs',
+    'icon' => 'fas fa-file-invoice-dollar',
+    'url' => 'hr/payroll-runs',
+    'permission' => 'view_payroll_run',
+],
+    [
+    'title' => 'Payslips',
+    'icon' => 'fas fa-receipt',
+    'url' => 'hr/payroll-payslips',
+    'permission' => 'view_payroll_payslip',
+],
+    [
+    'itemType' => 'item-separator',
+    'title' => '<h6 class="ps-3 mt-4 mb-2 text-uppercase text-xs font-weight-bolder opacity-6 group-title">Time Tracking</h6>',
+    'url' => null,
+],
+    [
+    'title' => 'Clock Events',
+    'icon' => 'fas fa-clock-events',
+    'url' => 'hr/clock-events',
+    'permission' => 'view_clock_event',
+    'groupTitle' => 'Time Tracking',
+],
+    [
+    'title' => 'Attendance',
+    'icon' => 'fas fa-clock',
+    'url' => 'hr/attendances',
+    'permission' => 'view_attendance',
+    'groupTitle' => 'Time Tracking',
+],
+    [
+    'itemType' => 'item-separator',
+    'title' => '<h6 class="ps-3 mt-4 mb-2 text-uppercase text-xs font-weight-bolder opacity-6 group-title">Scheduling</h6>',
+    'url' => null,
+],
+    [
+    'title' => 'Shifts',
+    'icon' => 'fas fa-calendar-day',
+    'url' => 'hr/shifts',
+    'permission' => 'view_shift',
+    'groupTitle' => 'Scheduling',
+],
+    [
+    'title' => 'Timesheets',
+    'icon' => 'fas fa-file-alt',
+    'url' => 'hr/timesheets',
+    'permission' => 'view_timesheet',
+    'groupTitle' => 'Time Tracking',
+],
+    [
+    'title' => 'Holiday Calendars',
+    'icon' => 'fas fa-calendar-plus',
+    'url' => 'hr/holiday-calendars',
+    'permission' => 'view_timesheet_entry',
+    'groupTitle' => 'Scheduling',
+],
+];

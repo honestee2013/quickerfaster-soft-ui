@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use App\Modules\Admin\Database\Seeders\QFDatabaseSeeder;
+use  Database\Seeders\UserSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -15,6 +17,7 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
         $this->call([
+            QFDatabaseSeeder::class,
             UserSeeder::class
         ]);
     }
