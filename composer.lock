@@ -4337,12 +4337,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/honestee2013/laravel-ui.git",
-                "reference": "a9e4ef1e6a9f038c057da81cdc9986d9f9ea4538"
+                "reference": "5ed7a4ec21955c5f75d9b4174d9609a8684c8079"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/honestee2013/laravel-ui/zipball/a9e4ef1e6a9f038c057da81cdc9986d9f9ea4538",
-                "reference": "a9e4ef1e6a9f038c057da81cdc9986d9f9ea4538",
+                "url": "https://api.github.com/repos/honestee2013/laravel-ui/zipball/5ed7a4ec21955c5f75d9b4174d9609a8684c8079",
+                "reference": "5ed7a4ec21955c5f75d9b4174d9609a8684c8079",
                 "shasum": ""
             },
             "require": {
@@ -4376,7 +4376,7 @@
                 "source": "https://github.com/honestee2013/laravel-ui/tree/main",
                 "issues": "https://github.com/honestee2013/laravel-ui/issues"
             },
-            "time": "2025-12-16T06:44:22+00:00"
+            "time": "2025-12-16T08:00:40+00:00"
         },
         {
             "name": "ralouphie/getallheaders",
