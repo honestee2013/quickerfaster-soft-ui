@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "15b4f61f8b07d578a8d9ba5ccf61e204",
+    "content-hash": "29e61d3b3cc62860083824b2f3a2b574",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -4334,10 +4334,16 @@
         {
             "name": "quicker-faster/laravel-ui",
             "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/honestee2013/laravel-ui.git",
+                "reference": "a9e4ef1e6a9f038c057da81cdc9986d9f9ea4538"
+            },
             "dist": {
-                "type": "path",
-                "url": "./../packages/quicker-faster/laravel-ui",
-                "reference": "104940e0e2e7dd9b99dcc8db5d96fb2c8335d48d"
+                "type": "zip",
+                "url": "https://api.github.com/repos/honestee2013/laravel-ui/zipball/a9e4ef1e6a9f038c057da81cdc9986d9f9ea4538",
+                "reference": "a9e4ef1e6a9f038c057da81cdc9986d9f9ea4538",
+                "shasum": ""
             },
             "require": {
                 "barryvdh/laravel-dompdf": "^3.1",
@@ -4348,6 +4354,7 @@
                 "spatie/laravel-activitylog": "^4.10",
                 "spatie/laravel-permission": "^6.21"
             },
+            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -4365,9 +4372,11 @@
                 "MIT"
             ],
             "description": "A reusable package for your Laravel project layouts and UIX Components to speed up your development.",
-            "transport-options": {
-                "relative": true
-            }
+            "support": {
+                "source": "https://github.com/honestee2013/laravel-ui/tree/main",
+                "issues": "https://github.com/honestee2013/laravel-ui/issues"
+            },
+            "time": "2025-12-16T06:44:22+00:00"
         },
         {
             "name": "ralouphie/getallheaders",
@@ -8516,11 +8525,18 @@
         {
             "name": "quicker-faster/laravel-code-gen",
             "version": "dev-main",
-            "dist": {
-                "type": "path",
-                "url": "./../packages/quicker-faster/laravel-code-gen",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/honestee2013/laravel-code-gen.git",
                 "reference": "5e3d3c7a83378bb037676203393e46d4efca2453"
             },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/honestee2013/laravel-code-gen/zipball/5e3d3c7a83378bb037676203393e46d4efca2453",
+                "reference": "5e3d3c7a83378bb037676203393e46d4efca2453",
+                "shasum": ""
+            },
+            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -8538,9 +8554,11 @@
                 "MIT"
             ],
             "description": "A reusable package for your Laravel project to generate a website CRUD operations and other code using various options about the technology and themes  e.g Livewire and Creative Tim's bootstarp soft-ui theme.",
-            "transport-options": {
-                "relative": true
-            }
+            "support": {
+                "source": "https://github.com/honestee2013/laravel-code-gen/tree/main",
+                "issues": "https://github.com/honestee2013/laravel-code-gen/issues"
+            },
+            "time": "2025-12-06T17:06:46+00:00"
         },
         {
             "name": "sebastian/cli-parser",
