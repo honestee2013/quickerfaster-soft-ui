@@ -9,14 +9,20 @@ use Illuminate\Database\Eloquent\Model;
 class User extends Model
 {
     use HasFactory;
-    
-    
+
+
 
 
 
     protected $fillable = [
         'name', 'email', 'email_verified_at', 'password', 'password_confirmation', 'remember_token', 'user_type' // Fillable properties will be inserted here
     ];
+
+
+    public function employee()
+    {
+        return $this->hasOne(\App\Modules\Hr\Models\Employee::class, 'user_id', 'id');
+    }
 
     /*public function employeeProfile(){
 		return $this->belongsTo('App\Modules\Hr\Models\EmployeeProfile', 'employee_profile_id');

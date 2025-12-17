@@ -12,8 +12,10 @@ deployment:
     - /bin/echo "===== Deployment started at $(date) =====" >> $LOGFILE
 
     # Pull latest changes from GitHub
-    # - /bin/echo "Pulling latest changes from GitHub..." >> $LOGFILE
-    # - cd $REPOPATH && /usr/bin/git pull origin main >> $LOGFILE 2>&1
+    - /bin/echo "Pulling latest changes from GitHub..." >> $LOGFILE
+    - cd $REPOPATH && /usr/bin/git pull origin main >> $LOGFILE 2>&1
+
+
 
     # Clean destination folder but preserve .env, .cpanel.yml, storage, bootstrap/cache
     - /bin/echo "Cleaning destination folder..." >> $LOGFILE
