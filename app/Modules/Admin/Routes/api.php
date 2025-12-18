@@ -10,10 +10,6 @@ use Stancl\Tenancy\Middleware\PreventAccessFromCentralDomains;
 
 
 
-Route::middleware([
-    InitializeTenancyByDomain::class,
-    PreventAccessFromCentralDomains::class,
-])->group(function () {
 
     Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
         return $request->user();
@@ -27,6 +23,6 @@ Route::middleware([
         return json_encode('api route test');
     });
 
-});
+
 
 

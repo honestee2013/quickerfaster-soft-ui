@@ -23,13 +23,13 @@ class UserSyncController extends Controller
             ->map(function ($employee) {
                 $user = $employee->user;
                 $employeeProfile = $employee->employeeProfile;
-
+                
                 // Get the user's role
                 $role = '';
                 if ($user->roles->isNotEmpty()) {
                     $role = $user->roles->first()->name;
                 }
-
+                
                 return [
                     // User account information
                     'user_id' => $user->id,
@@ -41,7 +41,7 @@ class UserSyncController extends Controller
                     'user_company_id' => $user->company_id,
                     'user_email' => $user->email,
                     'user_phone' => $user->phone,
-
+                    
                     // Employee core information
                     'employee_id' => $employee->id,
                     'employee_number' => $employee->employee_number,
@@ -50,7 +50,7 @@ class UserSyncController extends Controller
                     'full_name' => $employee->first_name . ' ' . $employee->last_name,
                     'official_email' => $employee->email,
                     'official_phone' => $employee->phone,
-
+                    
                     // Employee Profile information
                     'profile_picture' => $employeeProfile->photo
                         ? asset('storage/' . $employeeProfile->photo)
@@ -67,7 +67,7 @@ class UserSyncController extends Controller
                     'passport_expiry_date' => $employeeProfile->passport_expiry_date,
                     'national_id_number' => $employeeProfile->national_id_number,
                     'bio' => $employeeProfile->bio,
-
+                    
                     // Employee personal details
                     'gender' => $employee->gender,
                     'date_of_birth' => $employee->date_of_birth,
@@ -78,35 +78,35 @@ class UserSyncController extends Controller
                     'address_state' => $employee->address_state,
                     'address_postal_code' => $employee->address_postal_code,
                     'address_country' => $employee->address_country,
-
+                    
                     // Department information
                     'department' => $employee->department ? $employee->department->name : null,
                     'department_id' => $employee->department_id,
-
+                    
                     // Position/Designation information
-                    'designation' => $employee->employeePosition
-                        ? $employee->employeePosition->position_name
+                    'designation' => $employee->employeePosition 
+                        ? $employee->employeePosition->position_name 
                         : null,
-                    'position_id' => $employee->employeePosition
-                        ? $employee->employeePosition->position_id
+                    'position_id' => $employee->employeePosition 
+                        ? $employee->employeePosition->position_id 
                         : null,
-
+                    
                     // Employment details
                     'status' => $employee->status,
                     'hire_date' => $employee->hire_date,
-
+                    
                     // Additional computed fields for mobile app convenience
-                    'display_name' => $employeeProfile->preferred_name
+                    'display_name' => $employeeProfile->preferred_name 
                         ?: $employee->first_name . ' ' . $employee->last_name,
-                    'primary_email' => $employeeProfile->personal_email
-                        ?: $employee->email
+                    'primary_email' => $employeeProfile->personal_email 
+                        ?: $employee->email 
                         ?: $user->email,
-                    'primary_phone' => $employeeProfile->personal_phone
-                        ?: $employeeProfile->work_phone
-                        ?: $employee->phone
+                    'primary_phone' => $employeeProfile->personal_phone 
+                        ?: $employeeProfile->work_phone 
+                        ?: $employee->phone 
                         ?: $user->phone,
                     'is_active' => $employee->status === 'active',
-
+                    
                     // Timestamps
                     'created_at' => $employee->created_at,
                     'updated_at' => $employee->updated_at,
@@ -122,7 +122,7 @@ class UserSyncController extends Controller
             'data' => $employees,
         ]);
     }
-
+    
     /**
      * Alternative: Get employees with profiles, including those without user accounts
      */
@@ -139,15 +139,15 @@ class UserSyncController extends Controller
             ->map(function ($employee) {
                 $user = $employee->user;
                 $employeeProfile = $employee->employeeProfile;
-
+                
                 $role = '';
                 $userData = null;
-
+                
                 if ($user) {
                     if ($user->roles->isNotEmpty()) {
                         $role = $user->roles->first()->name;
                     }
-
+                    
                     $userData = [
                         'user_id' => $user->id,
                         'username' => $user->email,
@@ -158,7 +158,7 @@ class UserSyncController extends Controller
                         'has_account' => true
                     ];
                 }
-
+                
                 return [
                     'employee_id' => $employee->id,
                     'employee_number' => $employee->employee_number,
