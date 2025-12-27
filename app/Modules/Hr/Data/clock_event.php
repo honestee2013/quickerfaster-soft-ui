@@ -43,16 +43,16 @@ return [
       'label' => 'Longitude',
       'maxSizeMB' => 1,
     ],
-    'accuracy_meters' => [
-      'display' => 'inline',
-      'field_type' => 'number',
-      'label' => 'Accuracy Meters',
-      'maxSizeMB' => 1,
-    ],
-    'address' => [
+    'location_name' => [
       'display' => 'inline',
       'field_type' => 'string',
-      'label' => 'Address',
+      'label' => 'Location Name',
+      'maxSizeMB' => 1,
+    ],
+    'timezone' => [
+      'display' => 'inline',
+      'field_type' => 'string',
+      'label' => 'Timezone',
       'maxSizeMB' => 1,
     ],
     'ip_address' => [
@@ -65,6 +65,12 @@ return [
       'display' => 'inline',
       'field_type' => 'string',
       'label' => 'Device',
+      'maxSizeMB' => 1,
+    ],
+    'device_name' => [
+      'display' => 'inline',
+      'field_type' => 'string',
+      'label' => 'Device Name',
       'maxSizeMB' => 1,
     ],
     'sync_status' => [

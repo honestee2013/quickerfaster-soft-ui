@@ -27,7 +27,7 @@ class ClockEvent extends Model
     
 
     protected $fillable = [
-        'employee_id', 'event_type', 'timestamp', 'method', 'latitude', 'longitude', 'accuracy_meters', 'address', 'ip_address', 'device_id', 'sync_status', 'sync_attempts'
+        'employee_id', 'event_type', 'timestamp', 'method', 'latitude', 'longitude', 'location_name', 'timezone', 'ip_address', 'device_id', 'device_name', 'sync_status', 'sync_attempts'
     ];
 
     protected $guarded = [
@@ -38,7 +38,6 @@ class ClockEvent extends Model
         'timestamp' => 'datetime',
         'latitude' => 'decimal:8',
         'longitude' => 'decimal:8',
-        'accuracy_meters' => 'integer',
         'sync_attempts' => 'integer'
     ];
 

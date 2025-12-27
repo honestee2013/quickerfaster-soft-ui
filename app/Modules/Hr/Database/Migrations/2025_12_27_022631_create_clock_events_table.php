@@ -16,10 +16,11 @@ return new class extends Migration
             $table->string('method')->default('device')->nullable();
             $table->decimal('latitude', 10, 8)->nullable();
             $table->decimal('longitude', 11, 8)->nullable();
-            $table->integer('accuracy_meters')->nullable();
-            $table->string('address')->nullable();
+            $table->string('location_name')->nullable();
+            $table->string('timezone')->nullable();
             $table->string('ip_address')->nullable();
             $table->string('device_id')->nullable();
+            $table->string('device_name')->nullable();
             $table->string('sync_status')->default('pending')->nullable();
             $table->integer('sync_attempts')->default(0)->nullable();
             
