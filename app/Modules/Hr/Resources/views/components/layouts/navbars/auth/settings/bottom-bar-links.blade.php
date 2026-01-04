@@ -1,5 +1,13 @@
 {{-- Bottom Bar Links for hr --}}
 
+            <button role="link" href="hr/locations" class="btn btn-light flex-shrink-0 text-center" style="min-width:70px;" wire:navigate>
+                <i class=" fas fa-map-marker-alt }} d-block mb-1"></i>
+                <small>Locations</small>
+            </button>
+            <button role="link" href="hr/companies" class="btn btn-light flex-shrink-0 text-center" style="min-width:70px;" wire:navigate>
+                <i class=" fas fa-building }} d-block mb-1"></i>
+                <small>Companies</small>
+            </button>
             <button role="link" href="hr/departments" class="btn btn-light flex-shrink-0 text-center" style="min-width:70px;" wire:navigate>
                 <i class=" fas fa-building }} d-block mb-1"></i>
                 <small>Departments</small>

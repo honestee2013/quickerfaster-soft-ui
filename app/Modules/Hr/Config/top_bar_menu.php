@@ -20,8 +20,14 @@ return [
     'permission' => 'view_employee_payroll_profile',
 ],
     [
+    'title' => 'Leave',
+    'icon' => 'fas fa-user-check',
+    'url' => 'hr/my-leave',
+    'permission' => 'view_leave_request',
+],
+    [
     'title' => 'Attendance',
-    'icon' => 'fas fa-clock',
+    'icon' => 'fas fa-user-clock',
     'url' => 'hr/attendances',
     'permission' => 'view_attendance',
 ],

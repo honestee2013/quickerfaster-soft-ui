@@ -5,6 +5,6 @@
 
 
 
-    <livewire:qf::dashboards.dashboard-manager moduleName="hr" />
+    <livewire:qf::dashboards.dashboard-manager moduleName="hr" viewName="dashboard" />
 
 </x-qf::livewire.bootstrap.layouts.app>

@@ -22,6 +22,25 @@ return [
       'label' => 'Description',
       'maxSizeMB' => 1,
     ],
+    'company_id' => [
+      'display' => 'inline',
+      'field_type' => 'select',
+      'label' => 'Company',
+      'validation' => 'required|integer',
+      'relationship' => [
+        'model' => 'App\Modules\Hr\Models\Company',
+        'type' => 'belongsTo',
+        'display_field' => 'name',
+        'dynamic_property' => 'company',
+        'foreign_key' => 'company_id',
+        'inlineAdd' => false,
+      ],
+      'options' => [
+        'model' => 'App\Modules\Hr\Models\Company',
+        'column' => 'name',
+        'hintField' => '',
+      ],
+    ],
     'parent_department_id' => [
       'display' => 'inline',
       'field_type' => 'select',
@@ -92,7 +111,7 @@ return [
   'fieldGroups' => [
     '0' => [
       'title' => 'Department Information',
-      'groupType' => 'organization',
+      'groupType' => 'hr',
       'fields' => [
         '0' => 'name',
         '1' => 'code',
@@ -102,7 +121,7 @@ return [
     ],
     '1' => [
       'title' => 'Department Structure',
-      'groupType' => 'organization',
+      'groupType' => 'hr',
       'fields' => [
         '0' => 'parent_department_id',
         '1' => 'is_active',
@@ -122,6 +141,12 @@ return [
       'type' => 'hasMany',
       'model' => 'App\Modules\Hr\Models\Department',
       'foreignKey' => 'parent_department_id',
+      'displayField' => 'name',
+    ],
+    'company' => [
+      'type' => 'belongsTo',
+      'model' => 'App\Modules\Hr\Models\Company',
+      'foreignKey' => 'company_id',
       'displayField' => 'name',
     ],
   ],

@@ -87,6 +87,8 @@ return array (
       array (
         0 => 'chart_type',
       ),
+      'group_by_relation' => 'roles',
+      'relation_field' => 'name',
     ),
     'user_activity_last_30_days' => 
     array (
@@ -100,12 +102,37 @@ return array (
       array (
         0 => 'time_duration',
       ),
+      'column' => 'last_login_at',
     ),
     'security_alerts' => 
     array (
       'type' => 'alert-list',
       'title' => 'Security Alerts',
       'size' => 'col-12',
+      'alerts' => 
+      array (
+        0 => 
+        array (
+          'condition' => 'User::where(\'status\', \'invited\')->where(\'created_at\', \'<\', now()->subDays(7))->count() > 0',
+          'message' => 'There are unclaimed invitations older than 7 days.',
+          'action_url' => '/admin/users?status=invited',
+          'severity' => 'warning',
+        ),
+        1 => 
+        array (
+          'condition' => 'Role::where(\'editable\', \'No\')->doesntHave(\'users\')->count() > 0',
+          'message' => 'Unused system roles detected.',
+          'action_url' => '/auth/roles',
+          'severity' => 'info',
+        ),
+        2 => 
+        array (
+          'condition' => 'User::whereNull(\'email_verified_at\')->count() > 10',
+          'message' => 'Over 10 unverified users.',
+          'action_url' => '/admin/users?verified=false',
+          'severity' => 'warning',
+        ),
+      ),
     ),
     'recent_user_changes' => 
     array (
@@ -121,6 +148,13 @@ return array (
           1 => '=',
           2 => 'admin',
         ),
+      ),
+      'limit' => 5,
+      'fields' => 
+      array (
+        0 => 'causer.name',
+        1 => 'description',
+        2 => 'created_at',
       ),
     ),
   ),

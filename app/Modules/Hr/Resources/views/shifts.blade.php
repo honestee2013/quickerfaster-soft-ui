@@ -18,11 +18,42 @@
             pageTitle="Shifts"
             queryFilters=[]
             :hiddenFields="[
-    'onTable' => [],
-    'onNewForm' => [
-    '0' => 'duration_hours',
+    'onTable' => [
+    '0' => 'attendanceRecords',
+    '1' => 'required_skills',
+    '2' => 'shift_category',
+    '3' => 'pay_multiplier',
+    '4' => 'minimum_staffing',
+    '5' => 'is_restricted',
+    '6' => 'description',
+    '7' => 'color',
+    '8' => 'templateSource',
+    '9' => 'departments',
+    '10' => 'attendanceRecords',
+    '11' => 'shiftSchedules',
+    '12' => 'is_overnight',
+    '13' => 'created_from_template_id',
+    '14' => 'last_used_date',
+    '15' => 'usage_count',
 ],
-    'onEditForm' => [],
+    'onNewForm' => [
+    '0' => 'attendanceRecords',
+    '1' => 'color',
+    '2' => 'duration_hours',
+    '3' => 'is_overnight',
+    '4' => 'created_from_template_id',
+    '5' => 'last_used_date',
+    '6' => 'usage_count',
+],
+    'onEditForm' => [
+    '0' => 'attendanceRecords',
+    '1' => 'color',
+    '2' => 'duration_hours',
+    '3' => 'is_overnight',
+    '4' => 'created_from_template_id',
+    '5' => 'last_used_date',
+    '6' => 'usage_count',
+],
     'onQuery' => [],
 ]"
             :queryFilters="[]"

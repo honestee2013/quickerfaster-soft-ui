@@ -34,16 +34,4 @@ return [
     'url' => 'admin/access-control-management',
     'permission' => 'view_permission',
 ],
-    [
-    'itemType' => 'item-separator',
-    'title' => '<h6 class="ps-3 mt-4 mb-2 text-uppercase text-xs font-weight-bolder opacity-6 group-title">Organization</h6>',
-    'url' => null,
-],
-    [
-    'title' => 'Locations',
-    'icon' => 'fas fa-map-marker-alt',
-    'url' => 'admin/locations',
-    'permission' => 'view_location',
-    'groupTitle' => 'Organization',
-],
 ];

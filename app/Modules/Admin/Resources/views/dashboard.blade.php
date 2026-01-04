@@ -5,6 +5,6 @@
 
 
 
-    <livewire:qf::dashboards.dashboard-manager moduleName="admin" />
+    <livewire:qf::dashboards.dashboard-manager moduleName="admin" viewName="dashboard" />
 
 </x-qf::livewire.bootstrap.layouts.app>

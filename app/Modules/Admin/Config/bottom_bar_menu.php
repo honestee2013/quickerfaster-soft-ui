@@ -22,11 +22,4 @@ return [
     'permission' => 'view_permission',
     'key' => 'permission',
 ],
-    [
-    'title' => 'Locations',
-    'icon' => 'fas fa-location-arrow',
-    'url' => 'admin/locations',
-    'permission' => 'view_location',
-    'key' => 'location',
-],
 ];

@@ -9,8 +9,8 @@ use Illuminate\Database\Eloquent\Model;
 class User extends Model
 {
     use HasFactory;
-
-
+    
+    
 
 
 
@@ -19,10 +19,12 @@ class User extends Model
     ];
 
 
+
     public function employee()
     {
         return $this->hasOne(\App\Modules\Hr\Models\Employee::class, 'user_id', 'id');
     }
+
 
     /*public function employeeProfile(){
 		return $this->belongsTo('App\Modules\Hr\Models\EmployeeProfile', 'employee_profile_id');

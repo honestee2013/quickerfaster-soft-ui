@@ -265,6 +265,12 @@ class ClockEventController extends Controller
                     ];
                     $results['failed']++;
 
+
+                    \Log::error('Failed to process batch clock event at index ' . $index, [
+                        'event' => $androidEvent,
+                        'error' => $e->getMessage()
+                    ]);
+
                 } catch (\Exception $e) {
                     $results['events'][$index] = [
                         'status' => 'failed',

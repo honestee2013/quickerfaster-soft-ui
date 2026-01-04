@@ -7,10 +7,4 @@ return [
     'url' => 'admin/users',
     'permission' => 'view_user',
 ],
-    [
-    'title' => 'System Settings',
-    'icon' => 'fas fa-cogs',
-    'url' => 'admin/locations',
-    'permission' => 'view_location',
-],
 ];

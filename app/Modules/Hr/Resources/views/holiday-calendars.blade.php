@@ -15,12 +15,24 @@
 
    
     <livewire:qf::data-tables.data-table-manager :selectedItemId="$id??null" model="App\Modules\Hr\Models\HolidayCalendar"
-            pageTitle="Holiday Calendar"
+            pageTitle="Holiday Calendars"
             queryFilters=[]
             :hiddenFields="[
-    'onTable' => [],
-    'onNewForm' => [],
-    'onEditForm' => [],
+    'onTable' => [
+    '0' => 'locations',
+    '1' => 'departments',
+    '2' => 'holidays',
+    '3' => 'holiday_count',
+    '4' => 'last_updated',
+],
+    'onNewForm' => [
+    '0' => 'holiday_count',
+    '1' => 'last_updated',
+],
+    'onEditForm' => [
+    '0' => 'holiday_count',
+    '1' => 'last_updated',
+],
     'onQuery' => [],
 ]"
             :queryFilters="[]"

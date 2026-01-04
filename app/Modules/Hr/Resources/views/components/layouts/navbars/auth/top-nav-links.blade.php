@@ -6,6 +6,7 @@
 {{-- Generated Links --}}
 {{-- Generated Links --}}
 {{-- Generated Links --}}
+{{-- Generated Links --}}
 <li class="nav-item">
     <a href="/hr/departments"
         class="nav-link @if(request()->is('hr/departments') || request()->is('hr/departments/*')) fw-bold text-primary @endif">
@@ -34,10 +35,19 @@
     </a>
 </li>
 <li class="nav-item">
+    <a href="/hr/my-leave"
+        class="nav-link @if(request()->is('hr/my-leave') || request()->is('hr/my-leave/*')) fw-bold text-primary @endif">
+        @if(request()->is('hr/my-leave') || request()->is('hr/my-leave/*')) 
+            <i class="fas fas fa-user-check" aria-hidden="true"></i> 
+        @endif
+        <span>Leave</span>
+    </a>
+</li>
+<li class="nav-item">
     <a href="/hr/attendances"
         class="nav-link @if(request()->is('hr/attendances') || request()->is('hr/attendances/*')) fw-bold text-primary @endif">
         @if(request()->is('hr/attendances') || request()->is('hr/attendances/*')) 
-            <i class="fas fas fa-clock" aria-hidden="true"></i> 
+            <i class="fas fas fa-user-clock" aria-hidden="true"></i> 
         @endif
         <span>Time</span>
     </a>

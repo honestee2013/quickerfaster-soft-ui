@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
 use App\Modules\Hr\Models\Department;
+use App\Modules\Hr\Models\Company;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -27,7 +28,7 @@ class Department extends Model
     
 
     protected $fillable = [
-        'name', 'code', 'description', 'parent_department_id', 'cost_center', 'is_active'
+        'name', 'code', 'description', 'company_id', 'parent_department_id', 'cost_center', 'is_active'
     ];
 
     protected $guarded = [
@@ -96,6 +97,11 @@ class Department extends Model
     public function childDepartments()
     {
         return $this->hasMany(\App\Modules\Hr\Models\Department::class, 'parent_department_id', 'id');
+    }
+
+    public function company()
+    {
+        return $this->belongsTo(\App\Modules\Hr\Models\Company::class, 'company_id', 'id');
     }
 
     /**
