@@ -72,7 +72,7 @@ return [
       'display' => 'inline',
       'field_type' => 'select',
       'label' => 'Status',
-      'validation' => 'required',
+      'validation' => 'nullable',
       'options' => [
         'Active' => 'Active',
         'Inactive' => 'Inactive',
@@ -104,7 +104,7 @@ return [
       'display' => 'inline',
       'field_type' => 'string',
       'label' => 'Email',
-      'validation' => 'required|email|unique:employees,email',
+      'validation' => 'nullable|email|unique:employees,email',
       'wizard' => [
         'employee_onboarding' => true,
       ],
@@ -238,6 +238,12 @@ return [
         '1' => 'csv',
         '2' => 'pdf',
       ],
+      'import' => [
+        '0' => 'xls',
+        '1' => 'csv',
+        '2' => 'pdf',
+      ],
+
       'print' => true,
     ],
     'bulkActions' => [

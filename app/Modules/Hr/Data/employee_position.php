@@ -115,7 +115,7 @@ return [
       'display' => 'inline',
       'field_type' => 'select',
       'label' => 'Employment Status',
-      'validation' => 'required',
+      'validation' => 'nullable',
       'options' => [
         'Active' => 'Active',
         'On Leave' => 'On Leave',
@@ -132,7 +132,7 @@ return [
       'label' => 'Location',
       'maxSizeMB' => 1,
       'relationship' => [
-        'model' => 'App\Modules\Admin\Models\Location',
+        'model' => 'App\Modules\Hr\Models\Location',
         'type' => 'belongsTo',
         'display_field' => 'name',
         'dynamic_property' => 'location',
@@ -140,7 +140,7 @@ return [
         'inlineAdd' => false,
       ],
       'options' => [
-        'model' => 'App\Modules\Admin\Models\Location',
+        'model' => 'App\Modules\Hr\Models\Location',
         'column' => 'name',
         'hintField' => '',
       ],
@@ -367,7 +367,7 @@ return [
     ],
     'location' => [
       'type' => 'belongsTo',
-      'model' => 'App\Modules\Admin\Models\Location',
+      'model' => 'App\Modules\Hr\Models\Location',
       'foreignKey' => 'location_id',
       'displayField' => 'name',
     ],

@@ -16,10 +16,10 @@ return new class extends Migration
             $table->string('phone')->nullable();
             $table->date('hire_date');
             $table->foreignId('department_id')->constrained('departments', 'id')->onDelete('restrict');
-            $table->string('status');
+            $table->string('status')->default('Active')->nullable();
             $table->date('date_of_birth')->nullable();
             $table->string('gender')->nullable();
-            $table->string('email');
+            $table->string('email')->nullable();
             $table->foreignId('user_id')->nullable()->constrained('users', 'id')->onDelete('set null');
             $table->string('nationality')->nullable();
             $table->string('marital_status')->nullable();

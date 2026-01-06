@@ -18,14 +18,14 @@ class UserSeeder extends Seeder
     public function run()
     {
 
-        $superAdmin = User::create([
+        $admin = User::create([
             'id' => 1,
             'name' => 'admin',
             'email' => 'admin@softui.com',
             'password' => Hash::make('secret'),
         ]);
 
-        $dmin = User::create([
+        $superAdmin = User::create([
             'id' => 2,
             'name' => 'super admin',
             'email' => 'testing@agriwatts.ng',
@@ -36,10 +36,11 @@ class UserSeeder extends Seeder
         // Check if the 'super_admin' role exists
         $superAdminRole = Role::findByName('super_admin', 'web'); // 'web' is the default guard
         $adminRole = Role::findByName('admin', 'web'); // 'web' is the default guard
-        
+
+
         if ($superAdminRole) {
             $superAdmin->assignRole($superAdminRole); // For clocking purposes
-            $dmin->assignRole($adminRole); // For testing purposes
+            $admin->assignRole($adminRole); // For testing purposes
 
         } else {
             // Optional: throw an exception or log a warning
@@ -47,7 +48,7 @@ class UserSeeder extends Seeder
         }
 
         if ($adminRole) {
-            // $dmin->assignRole($adminRole);
+            // $admin->assignRole($adminRole);
         } else {
             // Optional: throw an exception or log a warning
             // throw new \Exception('Role "admin" not found. Did you run RoleSeeder?');

@@ -7,14 +7,7 @@ return [
       'display' => 'inline',
       'field_type' => 'file',
       'label' => 'Photo',
-      'maxSizeMB' => 1,
-      'fileTypes' => [
-        '0' => 'jpg',
-        '1' => 'jpeg',
-        '2' => 'png',
-        '3' => 'bmp',
-      ],
-      'validation' => 'mimes:jpg,jpeg,png,bmp|max:1024',
+      'validation' => 'nullable',
     ],
     'employee_id' => [
       'display' => 'inline',
@@ -57,7 +50,7 @@ return [
       'display' => 'inline',
       'field_type' => 'string',
       'label' => 'Personal Phone',
-      'maxSizeMB' => 1,
+      'validation' => 'required',
     ],
     'work_phone' => [
       'display' => 'inline',

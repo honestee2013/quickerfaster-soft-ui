@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('manager_id')->nullable()->constrained('employees', 'id')->onDelete('set null');
             $table->string('pay_type');
             $table->decimal('hourly_rate', 10, 2)->default(0)->nullable();
-            $table->string('employment_status');
+            $table->string('employment_status')->nullable()->default('Active');
             $table->foreignId('location_id')->nullable()->constrained('locations', 'id')->onDelete('restrict');
             $table->date('start_date');
             $table->date('end_date')->nullable();

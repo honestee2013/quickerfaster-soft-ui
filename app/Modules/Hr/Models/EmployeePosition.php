@@ -9,7 +9,7 @@ use Illuminate\Validation\ValidationException;
 use App\Modules\Hr\Models\Employee;
 use App\Modules\Hr\Models\JobTitle;
 use App\Modules\Hr\Models\Department;
-use App\Modules\Admin\Models\Location;
+use App\Modules\Hr\Models\Location;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -120,7 +120,7 @@ class EmployeePosition extends Model
 
     public function location()
     {
-        return $this->belongsTo(\App\Modules\Admin\Models\Location::class, 'location_id', 'id');
+        return $this->belongsTo(\App\Modules\Hr\Models\Location::class, 'location_id', 'id');
     }
 
     /**
