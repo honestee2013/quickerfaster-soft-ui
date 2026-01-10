@@ -28,27 +28,6 @@ return [
         'api' => 'API',
       ],
     ],
-    'roles' => [
-      'field_type' => 'checkbox',
-      'relationship' => [
-        'model' => 'App\Models\Role',
-        'type' => 'belongsToMany',
-        'display_field' => 'name',
-        'hintField' => '',
-        'dynamic_property' => 'roles',
-        'foreign_key' => '',
-        'local_key' => 'id',
-        'inlineAdd' => false,
-      ],
-      'options' => [
-        'model' => 'App\Models\Role',
-        'column' => 'name',
-        'hintField' => '',
-      ],
-      'label' => 'Roles',
-      'multiSelect' => true,
-      'display' => 'inline',
-    ],
   ],
   'hiddenFields' => [
     'onTable' => [],
@@ -101,15 +80,6 @@ return [
   ],
   'moreActions' => [],
   'switchViews' => [],
-  'relations' => [
-    'roles' => [
-      'type' => 'belongsToMany',
-      'model' => 'App\Models\Role',
-      'pivotTable' => 'role_has_permissions',
-      'foreignPivotKey' => 'permission_id',
-      'relatedPivotKey' => 'role_id',
-      'displayField' => 'name',
-    ],
-  ],
+  'relations' => [],
   'report' => [],
 ];

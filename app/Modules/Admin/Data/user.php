@@ -48,21 +48,6 @@ return [
       'label' => 'Remember Token',
       'maxSizeMB' => 1,
     ],
-    'user_type' => [
-      'display' => 'inline',
-      'field_type' => 'select',
-      'label' => 'User Type',
-      'validation' => 'required|string',
-      'options' => [
-        'admin' => 'Administrator',
-        'hr_manager' => 'HR Manager',
-        'employee' => 'Employee',
-        'viewer' => 'Viewer',
-      ],
-      'wizard' => [
-        'user_onboarding' => true,
-      ],
-    ],
     'status' => [
       'display' => 'inline',
       'field_type' => 'select',
@@ -75,19 +60,20 @@ return [
       ],
     ],
     'roles' => [
-      'field_type' => 'checkbox',
+      'field_type' => 'morphToMany',
       'relationship' => [
-        'model' => 'App\Modules\Admin\Models\Role',
-        'type' => 'belongsToMany',
+        'model' => 'Spatie\Permission\Models\Role',
+        'type' => 'morphToMany',
         'display_field' => 'name',
-        'hintField' => '',
         'dynamic_property' => 'roles',
-        'foreign_key' => '',
-        'local_key' => 'id',
+        'foreign_key' => 'model_id',
+        'related_pivot_key' => 'role_id',
+        'morph_type' => 'model_type',
+        'pivot_table' => 'model_has_roles',
         'inlineAdd' => false,
       ],
       'options' => [
-        'model' => 'App\Modules\Admin\Models\Role',
+        'model' => 'Spatie\Permission\Models\Role',
         'column' => 'name',
         'hintField' => '',
       ],
@@ -95,33 +81,13 @@ return [
       'multiSelect' => true,
       'display' => 'inline',
     ],
-    'permissions' => [
-      'field_type' => 'checkbox',
-      'relationship' => [
-        'model' => 'App\Modules\Admin\Models\Permission',
-        'type' => 'belongsToMany',
-        'display_field' => 'name',
-        'hintField' => '',
-        'dynamic_property' => 'permissions',
-        'foreign_key' => '',
-        'local_key' => 'id',
-        'inlineAdd' => false,
-      ],
-      'options' => [
-        'model' => 'App\Modules\Admin\Models\Permission',
-        'column' => 'name',
-        'hintField' => '',
-      ],
-      'label' => 'Permissions',
-      'multiSelect' => true,
-      'display' => 'inline',
-    ],
   ],
   'hiddenFields' => [
     'onTable' => [
-      '0' => 'password',
-      '1' => 'remember_token',
-      '2' => 'email_verified_at',
+      '0' => 'password_confirmation',
+      '1' => 'password',
+      '2' => 'remember_token',
+      '3' => 'email_verified_at',
     ],
     'onNewForm' => [
       '0' => 'email_verified_at',
@@ -129,12 +95,12 @@ return [
       '2' => 'status',
     ],
     'onEditForm' => [
-      '0' => 'password',
-      '1' => 'password_confirmation',
-      '2' => 'remember_token',
-      '3' => 'email_verified_at',
+      '0' => 'remember_token',
+      '1' => 'email_verified_at',
     ],
-    'onQuery' => [],
+    'onQuery' => [
+      '0' => 'password_confirmation',
+    ],
   ],
   'simpleActions' => [
     '0' => 'show',
@@ -180,7 +146,6 @@ return [
       'fields' => [
         '0' => 'name',
         '1' => 'email',
-        '2' => 'user_type',
       ],
     ],
     'authentication' => [
@@ -203,21 +168,13 @@ return [
   'switchViews' => [],
   'relations' => [
     'roles' => [
-      'type' => 'belongsToMany',
-      'model' => 'App\Modules\Admin\Models\Role',
-      'pivotTable' => 'user_has_roles',
-      'foreignPivotKey' => 'user_id',
+      'model' => 'Spatie\Permission\Models\Role',
+      'type' => 'morphToMany',
+      'pivotTable' => 'model_has_roles',
+      'foreignKey' => 'model_id',
       'relatedPivotKey' => 'role_id',
-      'displayField' => 'name',
-      'addToDetail' => true,
-      'url' => 'auth/roles',
-      'index' => 'admin/users',
-    ],
-    'permissions' => [
-      'type' => 'belongsToMany',
-      'model' => 'App\Modules\Admin\Models\Permission',
-      'through' => 'roles',
-      'displayField' => 'name',
+      'morphType' => 'model_type',
+      'addToModel' => false,
     ],
     'employee' => [
       'type' => 'hasOne',

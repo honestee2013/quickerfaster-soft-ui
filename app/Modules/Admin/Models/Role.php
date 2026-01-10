@@ -2,148 +2,99 @@
 
 namespace App\Modules\Admin\Models;
 
-use App\Modules\Admin\Models\Permission;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\ValidationException;
 
 
-
-//use QuickerFaster\LaravelUI\Modules\System\Traits\HasEditableTraits;
-use Spatie\Permission\Models\Role as SpatieRole;
+use Spatie\Permission\Models\Role As SpatieRole;
 
 
-class Role extends SpatieRole
+class Role extends SpatieRole 
 {
-
-    //use HasEditableTraits;
     use HasFactory;
+    
+    
 
-    /**
-     * The database table used by the model.
-     *
-     * @var string
-     */
+    
+
     protected $table = 'roles';
+    
+    
+    
+    
+    
 
-    /**
-    * The database primary key value.
-    *
-    * @var string
-    */
-    /*protected $primaryKey = 'id';
-    protected $keyType = 'string';
-    public $incrementing = false;*/
-
-
-    /**
-     * Attributes that should be mass-assignable.
-     *
-     * @var array
-     */
     protected $fillable = [
-                'name',
-                'description',
+        'name', 'description', 'editable', 'guard_name'
+    ];
 
-                'guard_name',
-                'editable',
-                'team_id'
-              ];
+    protected $guarded = [
+        
+    ];
+
+    protected $casts = [
+        
+    ];
+
+    protected $dispatchesEvents = [
+        
+    ];
 
     /**
-     * The attributes that should be mutated to dates.
-     *
-     * @var array
+     * Validation rules for the model.
      */
-    protected $dates = [];
+    protected static $rules = [
+        
+    ];
 
     /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
+     * Custom validation messages.
      */
-    protected $casts = [];
+    protected static $messages = [
+        
+    ];
 
-
-
-
-
-
-    public function permissions(): BelongsToMany
+    /**
+     * Boot the model.
+     */
+    protected static function boot()
     {
-        return $this->belongsToMany(
-            Permission::class,
-            'role_has_permissions',
-            'role_id',
-            'permission_id'
-        );
+        parent::boot();
+        
     }
 
+    /**
+     * Validate the model instance.
+     */
+    public function validate()
+    {
+        $validator = Validator::make($this->attributesToArray(), static::$rules, static::$messages);
+        
+        if ($validator->fails()) {
+            throw new ValidationException($validator);
+        }
+        
+        return true;
+    }
 
+    /**
+     * Save the model to the database with validation.
+     */
+    public function save(array $options = [])
+    {
+        $this->validate();
+        return parent::save($options);
+    }
+
+    
+
+    /**
+     * Create a new factory instance for the model.
+     */
     protected static function newFactory()
     {
         return \App\Modules\Admin\Database\Factories\RoleFactory::new();
     }
-
-
-
-
-    /*
-     * Get the team for this model.
-     *
-     * @return App\Models\Team
-     * /
-    public function team()
-    {
-        return $this->belongsTo('App\Models\Team','team_id');
-    }
-
-    /**
-     * Get the modelHasRole for this model.
-     *
-     * @return App\Models\ModelHasRole
-     * /
-    public function modelHasRole()
-    {
-        return $this->hasOne('App\Models\ModelHasRole','role_id','id');
-    }
-
-    /**
-     * Get the roleHasPermission for this model.
-     *
-     * @return App\Models\RoleHasPermission
-     * /
-    public function roleHasPermission()
-    {
-        return $this->hasOne('App\Models\RoleHasPermission','role_id','id');
-    }
-
-
-    /**
-     * Get created_at in array format
-     *
-     * @param  string  $value
-     * @return array
-     * /
-    public function getCreatedAtAttribute($value)
-    {
-            $date = \DateTime::createFromFormat($this->getDateFormat(), $value);
-    if ($date)
-        return $date->format('j/n/Y G:i A');
-
-    }
-
-    /**
-     * Get updated_at in array format
-     *
-     * @param  string  $value
-     * @return array
-     * /
-    public function getUpdatedAtAttribute($value)
-    {
-            $date = \DateTime::createFromFormat($this->getDateFormat(), $value);
-    if ($date)
-        return $date->format('j/n/Y G:i A');
-
-    }*/
-
 }

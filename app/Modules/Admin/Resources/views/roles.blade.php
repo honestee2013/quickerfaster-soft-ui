@@ -18,10 +18,18 @@
             pageTitle="Roles"
             queryFilters=[]
             :hiddenFields="[
-    'onTable' => [],
-    'onNewForm' => [],
-    'onEditForm' => [],
-    'onQuery' => [],
+    'onTable' => [
+    '0' => 'permissions',
+],
+    'onNewForm' => [
+    '0' => 'permissions',
+],
+    'onEditForm' => [
+    '0' => 'permissions',
+],
+    'onQuery' => [
+    '0' => 'permissions',
+],
 ]"
             :queryFilters="[]"
         />

@@ -2,104 +2,99 @@
 
 namespace App\Modules\Admin\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\ValidationException;
 
-use Spatie\Permission\Models\Permission as SpatiePermission;
+
+use Spatie\Permission\Models\Permission As SpatiePermission;
 
 
-class Permission extends SpatiePermission
+class Permission extends SpatiePermission 
 {
+    use HasFactory;
+    
+    
 
+    
 
-    /**
-     * The database table used by the model.
-     *
-     * @var string
-     */
     protected $table = 'permissions';
+    
+    
+    
+    
+    
 
-    /**
-    * The database primary key value.
-    *
-    * @var string
-    */
-    protected $primaryKey = 'id';
-    protected $keyType = 'string';
-    public $incrementing = false;
-
-
-    /**
-     * Attributes that should be mass-assignable.
-     *
-     * @var array
-     */
     protected $fillable = [
-                  'description',
-                  'guard_name',
-                  'name'
-              ];
+        'name', 'description', 'guard_name'
+    ];
+
+    protected $guarded = [
+        
+    ];
+
+    protected $casts = [
+        
+    ];
+
+    protected $dispatchesEvents = [
+        
+    ];
 
     /**
-     * The attributes that should be mutated to dates.
-     *
-     * @var array
+     * Validation rules for the model.
      */
-    protected $dates = [];
+    protected static $rules = [
+        
+    ];
 
     /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
+     * Custom validation messages.
      */
-    protected $casts = [];
+    protected static $messages = [
+        
+    ];
 
     /**
-     * Get the modelHasPermission for this model.
-     *
-     * @return App\Models\ModelHasPermission
+     * Boot the model.
      */
-    public function modelHasPermission()
+    protected static function boot()
     {
-        return $this->hasOne('App\Models\ModelHasPermission','permission_id','id');
+        parent::boot();
+        
     }
 
     /**
-     * Get the roleHasPermission for this model.
-     *
-     * @return App\Models\RoleHasPermission
+     * Validate the model instance.
      */
-    public function roleHasPermission()
+    public function validate()
     {
-        return $this->hasOne('App\Models\RoleHasPermission','permission_id','id');
-    }
-
-
-    /**
-     * Get created_at in array format
-     *
-     * @param  string  $value
-     * @return array
-     */
-    public function getCreatedAtAttribute($value)
-    {
-            $date = \DateTime::createFromFormat($this->getDateFormat(), $value);
-    if ($date)
-        return $date->format('j/n/Y G:i A');
-
+        $validator = Validator::make($this->attributesToArray(), static::$rules, static::$messages);
+        
+        if ($validator->fails()) {
+            throw new ValidationException($validator);
+        }
+        
+        return true;
     }
 
     /**
-     * Get updated_at in array format
-     *
-     * @param  string  $value
-     * @return array
+     * Save the model to the database with validation.
      */
-    public function getUpdatedAtAttribute($value)
+    public function save(array $options = [])
     {
-            $date = \DateTime::createFromFormat($this->getDateFormat(), $value);
-    if ($date)
-        return $date->format('j/n/Y G:i A');
-
+        $this->validate();
+        return parent::save($options);
     }
 
+    
+
+    /**
+     * Create a new factory instance for the model.
+     */
+    protected static function newFactory()
+    {
+        return \App\Modules\Admin\Database\Factories\PermissionFactory::new();
+    }
 }

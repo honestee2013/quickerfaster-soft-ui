@@ -19,9 +19,10 @@
             queryFilters=[]
             :hiddenFields="[
     'onTable' => [
-    '0' => 'password',
-    '1' => 'remember_token',
-    '2' => 'email_verified_at',
+    '0' => 'password_confirmation',
+    '1' => 'password',
+    '2' => 'remember_token',
+    '3' => 'email_verified_at',
 ],
     'onNewForm' => [
     '0' => 'email_verified_at',
@@ -29,12 +30,12 @@
     '2' => 'status',
 ],
     'onEditForm' => [
-    '0' => 'password',
-    '1' => 'password_confirmation',
-    '2' => 'remember_token',
-    '3' => 'email_verified_at',
+    '0' => 'remember_token',
+    '1' => 'email_verified_at',
 ],
-    'onQuery' => [],
+    'onQuery' => [
+    '0' => 'password_confirmation',
+],
 ]"
             :queryFilters="[]"
         />
