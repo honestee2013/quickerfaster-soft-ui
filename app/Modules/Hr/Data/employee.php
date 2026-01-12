@@ -92,7 +92,7 @@ return [
       'display' => 'inline',
       'field_type' => 'select',
       'label' => 'Gender',
-      'validation' => 'nullable',
+      'validation' => 'required',
       'options' => [
         'Male' => 'Male',
         'Female' => 'Female',
@@ -238,12 +238,6 @@ return [
         '1' => 'csv',
         '2' => 'pdf',
       ],
-      'import' => [
-        '0' => 'xls',
-        '1' => 'csv',
-        '2' => 'pdf',
-      ],
-
       'print' => true,
     ],
     'bulkActions' => [

@@ -4,8 +4,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
-use App\Models\User;
-use Spatie\Permission\Models\Role;
+use App\Modules\Admin\Models\User;
+use App\Modules\Admin\Models\Role;
 
 
 class UserSeeder extends Seeder
@@ -18,14 +18,14 @@ class UserSeeder extends Seeder
     public function run()
     {
 
-        $admin = User::create([
+        $superAdmin = User::create([
             'id' => 1,
             'name' => 'admin',
             'email' => 'admin@softui.com',
             'password' => Hash::make('secret'),
         ]);
 
-        $superAdmin = User::create([
+        $dmin = User::create([
             'id' => 2,
             'name' => 'super admin',
             'email' => 'testing@agriwatts.ng',
@@ -36,11 +36,10 @@ class UserSeeder extends Seeder
         // Check if the 'super_admin' role exists
         $superAdminRole = Role::findByName('super_admin', 'web'); // 'web' is the default guard
         $adminRole = Role::findByName('admin', 'web'); // 'web' is the default guard
-
-
+        
         if ($superAdminRole) {
             $superAdmin->assignRole($superAdminRole); // For clocking purposes
-            $admin->assignRole($adminRole); // For testing purposes
+            $dmin->assignRole($adminRole); // For testing purposes
 
         } else {
             // Optional: throw an exception or log a warning
@@ -48,7 +47,7 @@ class UserSeeder extends Seeder
         }
 
         if ($adminRole) {
-            // $admin->assignRole($adminRole);
+            // $dmin->assignRole($adminRole);
         } else {
             // Optional: throw an exception or log a warning
             // throw new \Exception('Role "admin" not found. Did you run RoleSeeder?');

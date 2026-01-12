@@ -67,14 +67,16 @@
     "minimum-stability": "stable",
     "prefer-stable": true,
 
-    "repositories": [
+  "repositories": [
+
         {
-            "type": "vcs",
-            "url": "https://github.com/honestee2013/laravel-ui.git"
+            "type": "path",
+            "url": "./../packages/quicker-faster/laravel-code-gen"
         },
+
         {
-            "type": "vcs",
-            "url": "https://github.com/honestee2013/laravel-code-gen.git"
+            "type": "path",
+            "url": "./../packages/quicker-faster/laravel-ui"
         }
 
     ]

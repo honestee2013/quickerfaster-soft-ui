@@ -440,10 +440,13 @@ return [
       'fieldValue' => true,
       'actionName' => 'approve_attendance',
       'confirm' => 'Approve this attendance for payroll processing?',
+      'requiredRole' => [
+        '0' => 'payroll_officer',
+        '1' => 'hr_admin',
+      ],
       'condition' => [
-        '0' => [
-          'is_approved' => false,
-        ],
+        'is_approved' => false,
+        'is_locked' => false,
       ],
     ],
     '1' => [
@@ -453,10 +456,16 @@ return [
       'fieldName' => 'needs_review',
       'fieldValue' => true,
       'actionName' => 'request_attendance_review',
+      'requiredRole' => [
+        '0' => 'supervisor',
+        '1' => 'manager',
+        '2' => 'hr_admin',
+        '3' => 'payroll_officer',
+      ],
+      'requiredPermission' => 'attendance.review.request',
       'condition' => [
-        '0' => [
-          'needs_review' => false,
-        ],
+        'needs_review' => false,
+        'is_approved' => false,
       ],
     ],
     '2' => [
@@ -466,19 +475,30 @@ return [
       'fieldName' => 'needs_review',
       'fieldValue' => false,
       'actionName' => 'resolve_attendance_review',
+      'requiredRole' => [
+        '0' => 'manager',
+        '1' => 'hr_admin',
+      ],
       'condition' => [
-        '0' => [
-          'needs_review' => true,
-        ],
+        'needs_review' => true,
       ],
     ],
     '3' => [
       'title' => 'View Work Sessions',
       'icon' => 'fas fa-history',
-      'route' => 'attendance.sessions.index',
+      'url' => 'attendance-work-sessions',
+      'newTab' => true,
       'params' => [
         'attendance_id' => '{id}',
       ],
+      'requiredRole' => [
+        '0' => 'employee',
+        '1' => 'supervisor',
+        '2' => 'manager',
+        '3' => 'hr_admin',
+        '4' => 'payroll_officer',
+      ],
+      'requiredScope' => 'view_employee_data',
     ],
     '4' => [
       'title' => 'Recalculate Hours',
@@ -489,26 +509,41 @@ return [
         'attendance_id' => '{id}',
       ],
       'confirm' => 'Recalculate hours from clock events? This will overwrite manual adjustments.',
+      'requiredRole' => [
+        '0' => 'hr_admin',
+        '1' => 'system_admin',
+      ],
+      'condition' => [
+        'is_approved' => false,
+      ],
     ],
     '5' => [
       'title' => 'Export Timesheet',
       'icon' => 'fas fa-file-export',
-      'route' => 'attendance.export.timesheet',
+      'requiredRole' => [
+        '0' => 'payroll_officer',
+      ],
       'params' => [
         'attendance_id' => '{id}',
+      ],
+      'condition' => [
+        'is_approved' => false,
+        'is_locked' => false,
       ],
     ],
     '6' => [
       'title' => 'Add Adjustment',
       'icon' => 'fas fa-edit',
-      'route' => 'attendance.adjustments.create',
       'params' => [
         'attendance_id' => '{id}',
       ],
+      'requiredRole' => [
+        '0' => 'manager',
+        '1' => 'hr_admin',
+      ],
       'condition' => [
-        '0' => [
-          'is_approved' => false,
-        ],
+        'is_approved' => false,
+        'is_locked' => false,
       ],
     ],
   ],
