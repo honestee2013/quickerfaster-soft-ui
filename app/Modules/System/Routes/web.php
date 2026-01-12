@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Validator;
 
 Route::get('/{module}/{view}/{id?}', function ($module, $view, $id = null) {
     // Validation
-
+  
     Validator::make(['module' => $module, 'view' => $view, 'id' => $id], [
         'module' => 'required|string',
         'view' => 'required|string',
@@ -40,7 +40,7 @@ Route::get('/{module}/{view}/{id?}', function ($module, $view, $id = null) {
         if (!auth()->user()->can($permission) && $view !=="dashboard" && $view !=="my-profile") {
                 abort(403, 'Unauthorized');
         }
-
+        
     }
 
 
