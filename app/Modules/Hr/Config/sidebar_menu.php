@@ -141,6 +141,13 @@ return [
     'groupTitle' => 'Time Tracking',
 ],
     [
+    'title' => 'Adjust Attendance',
+    'icon' => 'fas fa-user-edit',
+    'url' => 'hr/attendance-adjustments',
+    'permission' => 'view_attendance_adjustment',
+    'groupTitle' => 'Time Tracking',
+],
+    [
     'title' => 'Shift Schedules',
     'icon' => 'fas fa-calendar-alt',
     'url' => 'hr/shift-schedules',

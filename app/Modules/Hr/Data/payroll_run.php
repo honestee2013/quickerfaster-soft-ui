@@ -161,7 +161,7 @@ return [
     '0' => [
       'title' => 'Preview Payroll',
       'icon' => 'fas fa-eye',
-      'dispatchEvent' => true,
+      'dispatchBrowserEvent' => true,
       'eventName' => 'openPayrollPreviewModalEvent',
       'params' => [
         'payroll_run_id' => '{id}',

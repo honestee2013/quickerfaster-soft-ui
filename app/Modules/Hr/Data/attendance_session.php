@@ -289,7 +289,7 @@ return [
     '0' => [
       'title' => 'Validate Session',
       'icon' => 'fas fa-check-circle',
-      'dispatchEvent' => true,
+      'dispatchStandardEvent' => true,
       'eventName' => 'validateAttendanceSessionEvent',
       'params' => [
         'session_id' => '{id}',
@@ -297,25 +297,9 @@ return [
       'confirm' => 'Run validation checks on this session?',
     ],
     '1' => [
-      'title' => 'View Clock Events',
-      'icon' => 'fas fa-search',
-      'route' => 'clock-events.index',
-      'params' => [
-        'session_id' => '{id}',
-      ],
-      'condition' => [
-        '0' => [
-          'clock_in_event_id' => 'not null',
-        ],
-        '1' => [
-          'clock_out_event_id' => 'not null',
-        ],
-      ],
-    ],
-    '2' => [
       'title' => 'Recalculate Duration',
       'icon' => 'fas fa-calculator',
-      'dispatchEvent' => true,
+      'dispatchStandardEvent' => true,
       'eventName' => 'recalculateSessionDurationEvent',
       'params' => [
         'session_id' => '{id}',
@@ -337,6 +321,10 @@ return [
         '0' => 'session_type',
       ],
       'badgeField' => 'is_adjusted',
+      'badgeColors' => [
+        'true' => 'warning',
+        'false' => 'secondary',
+      ],
     ],
     'list' => [
       'titleFields' => [
@@ -351,6 +339,10 @@ return [
         '1' => 'attendance.employee.first_name',
       ],
       'badgeField' => 'is_adjusted',
+      'badgeColors' => [
+        'true' => 'warning',
+        'false' => 'secondary',
+      ],
     ],
     'detail' => [
       'layout' => 'tab',

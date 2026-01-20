@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
 use App\Modules\Hr\Models\Employee;
 use App\Modules\Hr\Models\AttendanceSession;
+use App\Modules\Hr\Models\AttendanceAdjustment;
 use App\Modules\Hr\Models\LeaveRequest;
 use App\Modules\Hr\Models\Shift;
 
@@ -30,7 +31,7 @@ class Attendance extends Model
     
 
     protected $fillable = [
-        'employee_id', 'company', 'department', 'date', 'net_hours', 'status', 'sessions', 'shift_id', 'absence_type', 'is_unplanned', 'absence_reason', 'is_paid_absence', 'hours_deducted', 'is_approved', 'approved_by', 'approved_at', 'notes', 'needs_review', 'leave_request_id', 'last_calculated_at', 'calculation_method'
+        'employee_id', 'employee_number', 'company', 'department', 'date', 'net_hours', 'status', 'sessions', 'shift_id', 'absence_type', 'is_unplanned', 'absence_reason', 'is_paid_absence', 'hours_deducted', 'is_approved', 'approved_by', 'approved_at', 'notes', 'needs_review', 'leave_request_id', 'last_calculated_at', 'calculation_method'
     ];
 
     protected $guarded = [
@@ -108,6 +109,11 @@ class Attendance extends Model
     public function attendanceSessions()
     {
         return $this->hasMany(\App\Modules\Hr\Models\AttendanceSession::class, 'attendance_id', 'id');
+    }
+
+    public function adjustments()
+    {
+        return $this->hasMany(\App\Modules\Hr\Models\AttendanceAdjustment::class, 'attendance_id', 'id');
     }
 
     public function leaveRequest()

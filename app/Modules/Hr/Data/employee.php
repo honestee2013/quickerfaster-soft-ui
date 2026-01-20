@@ -307,12 +307,18 @@ return [
         '1' => 'last_name',
       ],
       'subtitleFields' => [
-        '0' => 'email',
-        '1' => 'phone',
+        '0' => 'employee_number',
+        '1' => 'department.name',
       ],
       'contentFields' => [
-        '0' => 'gender',
-        '1' => 'date_of_birth',
+        '0' => 'email',
+        '1' => 'gender',
+        '2' => 'hire_date',
+      ],
+      'badgeField' => 'status',
+      'badgeColors' => [
+        'Active' => 'success',
+        'Inctive' => 'secondary',
       ],
     ],
     'list' => [
@@ -321,12 +327,18 @@ return [
         '1' => 'last_name',
       ],
       'subtitleFields' => [
-        '0' => 'email',
-        '1' => 'phone',
+        '0' => 'employee_number',
+        '1' => 'department.name',
       ],
       'contentFields' => [
-        '0' => 'gender',
-        '1' => 'date_of_birth',
+        '0' => 'email',
+        '1' => 'gender',
+        '2' => 'hire_date',
+      ],
+      'badgeField' => 'status',
+      'badgeColors' => [
+        'Active' => 'success',
+        'Inctive' => 'secondary',
       ],
     ],
     'detail' => [

@@ -532,6 +532,10 @@ return [
         '1' => 'business_impact',
       ],
       'badgeField' => 'is_active',
+      'badgeColors' => [
+        'true' => 'success',
+        'false' => 'secondary',
+      ],
       'ribbonField' => 'is_paid_holiday',
       'ribbonText' => 'Paid',
       'ribbonColor' => 'warning',
@@ -550,6 +554,10 @@ return [
         '2' => 'eligible_employee_types',
       ],
       'badgeField' => 'is_active',
+      'badgeColors' => [
+        'true' => 'success',
+        'false' => 'secondary',
+      ],
       'tagField' => 'is_paid_holiday',
       'tagText' => 'Paid',
       'tagColor' => 'success',

@@ -10,7 +10,8 @@ return new class extends Migration
     {
         Schema::create('attendances', function (Blueprint $table) {
             $table->id();
-            $table->string('employee_id');
+            $table->foreignId('employee_id')->nullable()->constrained('employees', 'id')->onDelete('restrict');
+            $table->string('employee_number');
             $table->string('company')->nullable();
             $table->string('department')->nullable();
             $table->date('date');

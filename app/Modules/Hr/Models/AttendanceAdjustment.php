@@ -6,12 +6,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
-use App\Modules\Hr\Models\HolidayCalendar;
+use App\Modules\Hr\Models\Attendance;
 
 use Illuminate\Database\Eloquent\Model;
 
 
-class Holiday extends Model 
+class AttendanceAdjustment extends Model 
 {
     use HasFactory;
     
@@ -19,7 +19,7 @@ class Holiday extends Model
 
     
 
-    protected $table = 'holidays';
+    protected $table = 'attendance_adjustments';
     
     
     
@@ -27,7 +27,7 @@ class Holiday extends Model
     
 
     protected $fillable = [
-        'calendar_id', 'name', 'description', 'date', 'observed_date', 'is_recurring', 'recurrence_pattern', 'recurrence_rule', 'holiday_type', 'is_paid_holiday', 'affects_payroll', 'business_impact', 'eligible_employee_types', 'holiday_pay_rate', 'minimum_hours_for_pay', 'country_code', 'region_code', 'is_active', 'is_half_day', 'half_day_end_time', 'year', 'generated_from_template', 'override_id', 'last_synced_at'
+        'attendance_id', 'original_net_hours', 'original_status', 'adjusted_net_hours', 'adjusted_status', 'reason', 'adjusted_by', 'adjusted_at'
     ];
 
     protected $guarded = [
@@ -35,19 +35,9 @@ class Holiday extends Model
     ];
 
     protected $casts = [
-        'date' => 'date',
-        'observed_date' => 'date',
-        'is_recurring' => 'boolean',
-        'is_paid_holiday' => 'boolean',
-        'affects_payroll' => 'boolean',
-        'holiday_pay_rate' => 'decimal:2',
-        'minimum_hours_for_pay' => 'decimal:2',
-        'is_active' => 'boolean',
-        'is_half_day' => 'boolean',
-        'year' => 'integer',
-        'generated_from_template' => 'boolean',
-        'override_id' => 'integer',
-        'last_synced_at' => 'datetime'
+        'original_net_hours' => 'decimal:2',
+        'adjusted_net_hours' => 'decimal:2',
+        'adjusted_at' => 'datetime'
     ];
 
     protected $dispatchesEvents = [
@@ -100,9 +90,9 @@ class Holiday extends Model
         return parent::save($options);
     }
 
-    public function calendar()
+    public function attendance()
     {
-        return $this->belongsTo(\App\Modules\Hr\Models\HolidayCalendar::class, 'calendar_id', 'id');
+        return $this->belongsTo(\App\Modules\Hr\Models\Attendance::class, 'attendance_id', 'id');
     }
 
     /**
@@ -110,6 +100,6 @@ class Holiday extends Model
      */
     protected static function newFactory()
     {
-        return \App\Modules\Hr\Database\Factories\HolidayFactory::new();
+        return \App\Modules\Hr\Database\Factories\AttendanceAdjustmentFactory::new();
     }
 }

@@ -1,6 +1,9 @@
 
 
 
+
+
+
 document.addEventListener('livewire:initialized', function () {
 
 
@@ -208,6 +211,39 @@ document.addEventListener('livewire:initialized', function () {
         });
 
     });
+
+
+
+
+
+
+
+window.confirmAndDispatch = (action) => {
+    // 'action' is now the object: { title: "...", confirm: "...", eventClass: "...", params: {...} }
+
+    Swal.fire({
+        title: 'Please Confirm!', // action.title + "?" || 'Are you sure?',
+        text: action.confirm, // This will now work correctly
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Yes!',
+        cancelButtonText: 'No',
+        customClass: {
+            confirmButton: 'btn bg-gradient-success me-3',
+            cancelButton: 'btn bg-gradient-danger'
+        },
+        buttonsStyling: false
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Livewire.dispatch('dispatchStandardEvent', [action]);
+        }
+    });
+}
+
+
+
+
+
 
 
 

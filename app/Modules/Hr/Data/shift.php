@@ -498,6 +498,10 @@ return [
         '2' => 'duration_hours',
       ],
       'badgeField' => 'is_active',
+      'badgeColors' => [
+        'true' => 'success',
+        'false' => 'secondary',
+      ],
       'ribbonField' => 'is_default',
       'ribbonText' => 'Default',
       'ribbonColor' => 'warning',
@@ -516,6 +520,10 @@ return [
         '2' => 'break_duration',
       ],
       'badgeField' => 'is_active',
+      'badgeColors' => [
+        'true' => 'success',
+        'false' => 'secondary',
+      ],
     ],
     'detail' => [
       'layout' => 'tab',

@@ -128,6 +128,13 @@ return [
     'key' => 'attendance',
 ],
     [
+    'title' => 'Attendance Adjustments',
+    'icon' => 'fas fa-edit',
+    'url' => 'hr/attendance-adjustments',
+    'permission' => 'view_attendance_adjustment',
+    'key' => 'attendance_adjustment',
+],
+    [
     'title' => 'Shift Schedules',
     'icon' => 'fas fa-calendar-check',
     'url' => 'hr/shift-schedules',

@@ -409,7 +409,7 @@ return [
     '5' => [
       'title' => 'Preview Calendar',
       'icon' => 'fas fa-eye',
-      'dispatchEvent' => true,
+      'dispatchStandardEvent' => true,
       'eventName' => 'openHolidayCalendarPreviewEvent',
       'params' => [
         'calendar_id' => '{id}',
@@ -439,6 +439,10 @@ return [
         '0' => 'description',
       ],
       'badgeField' => 'is_active',
+      'badgeColors' => [
+        'true' => 'success',
+        'false' => 'secondary',
+      ],
       'ribbonField' => 'is_default',
       'ribbonText' => 'Default',
       'ribbonColor' => 'warning',
@@ -457,6 +461,10 @@ return [
         '1' => 'applicable_to',
       ],
       'badgeField' => 'is_active',
+      'badgeColors' => [
+        'true' => 'success',
+        'false' => 'secondary',
+      ],
       'tagField' => 'is_default',
       'tagText' => 'Default',
       'tagColor' => 'warning',

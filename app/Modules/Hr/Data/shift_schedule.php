@@ -549,7 +549,7 @@ return [
     '6' => [
       'title' => 'View Attendance',
       'icon' => 'fas fa-clock',
-      'route' => 'attendances.show',
+      'url' => 'attendances',
       'params' => [
         'id' => '{attendance_id}',
       ],
@@ -593,6 +593,10 @@ return [
         '1' => 'schedule_type',
       ],
       'badgeField' => 'is_published',
+      'badgeColors' => [
+        'true' => 'success',
+        'false' => 'warning',
+      ],
     ],
     'list' => [
       'titleFields' => [
@@ -609,6 +613,14 @@ return [
         '2' => 'notes',
       ],
       'badgeField' => 'status',
+      'badgeColors' => [
+        'scheduled' => 'secondary',
+        'confirmed' => 'success',
+        'cancelled' => 'danger',
+        'completed' => 'info',
+        'swapped' => 'warning',
+        'no_show' => 'dark',
+      ],
     ],
     'detail' => [
       'layout' => 'tab',
