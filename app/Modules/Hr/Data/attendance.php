@@ -296,36 +296,15 @@ return [
   ],
   'simpleActions' => [
     '0' => 'show',
-    '1' => 'edit',
-    '2' => 'delete',
   ],
   'isTransaction' => false,
   'dispatchEvents' => false,
   'controls' => [
-    'addButton' => [
-      '0' => [
-        'label' => 'Add Attendance Record',
-        'type' => 'quick_add',
-        'icon' => 'fas fa-plus-circle',
-        'primary' => true,
-      ],
-      '1' => [
-        'label' => 'Bulk Upload',
-        'type' => 'modal',
-        'icon' => 'fas fa-file-import',
-        'url' => '/hr/attendance/import',
-        'modalSize' => 'lg',
-      ],
-    ],
     'files' => [
       'export' => [
         '0' => 'xls',
         '1' => 'csv',
         '2' => 'pdf',
-      ],
-      'import' => [
-        '0' => 'xls',
-        '1' => 'csv',
       ],
       'print' => true,
     ],

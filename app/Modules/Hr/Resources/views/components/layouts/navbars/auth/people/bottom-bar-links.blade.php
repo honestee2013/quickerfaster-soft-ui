@@ -12,7 +12,3 @@
                 <i class=" fas fa-user-tie }} d-block mb-1"></i>
                 <small>Employee Profiles</small>
             </button>
-            <button role="link" href="hr/documents" class="btn btn-light flex-shrink-0 text-center" style="min-width:70px;" wire:navigate>
-                <i class=" fas fa-file-alt }} d-block mb-1"></i>
-                <small>Documents</small>
-            </button>

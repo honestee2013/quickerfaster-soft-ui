@@ -6,11 +6,11 @@
     </x-slot>
 
     <x-slot name="sidebar">
-        <livewire:qf::layouts.navs.sidebar context="people"  moduleName="hr">
+        <livewire:qf::layouts.navs.sidebar context=""  moduleName="hr">
     </x-slot>
     
     <x-slot name="bottomBar">
-        <livewire:qf::layouts.navs.bottom-bar context="people" moduleName="hr">
+        <livewire:qf::layouts.navs.bottom-bar context="" moduleName="hr">
     </x-slot>
 
    

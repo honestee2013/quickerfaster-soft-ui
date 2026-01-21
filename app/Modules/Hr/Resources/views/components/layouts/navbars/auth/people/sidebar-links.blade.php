@@ -5,7 +5,6 @@
 {{-- Generated Links --}}
 {{-- Generated Links --}}
 {{-- Generated Links --}}
-{{-- Generated Links --}}
 <li class="nav-item text-nowrap">
 <a href="/hr/employees" class="nav-link d-flex align-items-center" data-bs-toggle="tooltip" wire:ignore.self
 data-bs-placement="right" title="Employees">
@@ -25,20 +24,11 @@ data-bs-placement="right" title="Job Information">
 </a>
 </li>
 <li class="nav-item text-nowrap">
-<a href="/hr/employee-profiles" class="nav-link d-flex align-items-center" data-bs-toggle="tooltip" wire:ignore.self
-data-bs-placement="right" title="Profiles">
-<i class="fas fa-user-circle me-2"></i>
-@if ($state === 'full')
-<span>Profiles</span>
-@endif
-</a>
-</li>
-<li class="nav-item text-nowrap">
-    <a href="/hr/documents" class="nav-link d-flex align-items-center" data-bs-toggle="tooltip" wire:ignore.self
-        data-bs-placement="right" title="Documents">
-        <i class="fas fa-file me-2"></i>
+    <a href="/hr/employee-profiles" class="nav-link d-flex align-items-center" data-bs-toggle="tooltip" wire:ignore.self
+        data-bs-placement="right" title="Profiles">
+        <i class="fas fa-user-circle me-2"></i>
         @if ($state === 'full')
-            <span>Documents</span>
+            <span>Profiles</span>
         @endif
     </a>
 </li>
