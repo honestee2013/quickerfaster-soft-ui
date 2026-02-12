@@ -8,18 +8,27 @@ return [
       'field_type' => 'string',
       'label' => 'Title',
       'validation' => 'required|unique:job_titles,title',
+      'fillable' => true,
     ],
     'description' => [
       'display' => 'inline',
       'field_type' => 'textarea',
       'label' => 'Description',
       'maxSizeMB' => 1,
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
     ],
     'editable' => [
       'display' => 'inline',
       'field_type' => 'string',
       'label' => 'Editable',
       'maxSizeMB' => 1,
+      'modifiers' => [
+        'default' => 'Yes',
+        'nullable' => true,
+      ],
     ],
   ],
   'hiddenFields' => [

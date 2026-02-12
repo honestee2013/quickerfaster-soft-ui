@@ -8,6 +8,10 @@ return [
       'field_type' => 'file',
       'label' => 'Photo',
       'validation' => 'nullable',
+      'fileTypes' => 'image',
+      'modifiers' => [
+        'nullable' => true,
+      ],
     ],
     'employee_id' => [
       'display' => 'inline',
@@ -27,78 +31,124 @@ return [
         'column' => 'employee_number',
         'hintField' => 'first_name',
       ],
+      'fillable' => true,
     ],
     'middle_name' => [
       'display' => 'inline',
       'field_type' => 'string',
       'label' => 'Middle Name',
       'maxSizeMB' => 1,
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
     ],
     'preferred_name' => [
       'display' => 'inline',
       'field_type' => 'string',
       'label' => 'Preferred Name',
       'maxSizeMB' => 1,
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
     ],
     'personal_email' => [
       'display' => 'inline',
       'field_type' => 'string',
       'label' => 'Personal Email',
       'validation' => 'required|email|unique:employee_profiles,personal_email',
+      'fillable' => true,
     ],
     'personal_phone' => [
       'display' => 'inline',
       'field_type' => 'string',
       'label' => 'Personal Phone',
       'validation' => 'required',
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
     ],
     'work_phone' => [
       'display' => 'inline',
       'field_type' => 'string',
       'label' => 'Work Phone',
       'maxSizeMB' => 1,
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
     ],
     'emergency_contact_name' => [
       'display' => 'inline',
       'field_type' => 'string',
       'label' => 'Emergency Contact Name',
       'maxSizeMB' => 1,
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
     ],
     'emergency_contact_phone' => [
       'display' => 'inline',
       'field_type' => 'string',
       'label' => 'Emergency Contact Phone',
       'maxSizeMB' => 1,
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
     ],
     'emergency_contact_relationship' => [
       'display' => 'inline',
       'field_type' => 'string',
       'label' => 'Emergency Contact Relationship',
       'maxSizeMB' => 1,
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
     ],
     'passport_number' => [
       'display' => 'inline',
       'field_type' => 'string',
       'label' => 'Passport Number',
       'maxSizeMB' => 1,
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
     ],
     'passport_expiry_date' => [
       'display' => 'inline',
       'field_type' => 'datepicker',
       'label' => 'Passport Expiry Date',
       'maxSizeMB' => 1,
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
     ],
     'national_id_number' => [
       'display' => 'inline',
       'field_type' => 'string',
       'label' => 'National Number',
       'maxSizeMB' => 1,
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
     ],
     'bio' => [
       'display' => 'inline',
       'field_type' => 'textarea',
       'label' => 'Bio',
       'maxSizeMB' => 1,
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
     ],
   ],
   'hiddenFields' => [

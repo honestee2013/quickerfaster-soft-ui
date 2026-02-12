@@ -8,6 +8,7 @@ return [
       'field_type' => 'string',
       'label' => 'Company Name',
       'validation' => 'required|string|max:255',
+      'fillable' => true,
     ],
     'parent_company_id' => [
       'display' => 'inline',
@@ -26,6 +27,10 @@ return [
         'model' => 'App\Modules\Hr\Models\Company',
         'column' => 'name',
         'hintField' => '',
+      ],
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
       ],
     ],
     'location_id' => [
@@ -46,18 +51,32 @@ return [
         'column' => 'name',
         'hintField' => '',
       ],
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
     ],
     'subdomain' => [
       'display' => 'inline',
       'field_type' => 'string',
       'label' => 'Subdomain',
       'validation' => 'required|string|alpha_dash|min:3|max:63|unique:companies,subdomain|regex:/^[a-z][a-z0-9-]{1,61}[a-z0-9]$/',
+      'fillable' => true,
+      'help' => 'Your workspace will be: https://<subdomain>.my-domain.com',
+      'modifiers' => [
+        'nullable' => true,
+      ],
     ],
     'database_name' => [
       'display' => 'inline',
       'field_type' => 'string',
       'label' => 'Database Name',
       'validation' => 'nullable|string|max:64',
+      'fillable' => false,
+      'modifiers' => [
+        'nullable' => true,
+      ],
+      'help' => 'Auto-generated on workspace activation',
     ],
     'status' => [
       'display' => 'inline',
@@ -70,42 +89,71 @@ return [
         'suspended' => 'Suspended',
         'canceled' => 'Canceled',
       ],
+      'fillable' => true,
+      'modifiers' => [
+        'default' => 'pending',
+        'nullable' => true,
+      ],
     ],
     'billing_email' => [
       'display' => 'inline',
       'field_type' => 'string',
       'label' => 'Billing Email',
       'validation' => 'required|email|max:255',
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
     ],
     'billing_address_line_1' => [
       'display' => 'inline',
       'field_type' => 'string',
       'label' => 'Billing Address Line 1',
       'validation' => 'required|string|max:255',
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
     ],
     'billing_address_line_2' => [
       'display' => 'inline',
       'field_type' => 'string',
       'label' => 'Billing Address Line 2',
       'validation' => 'nullable|string|max:255',
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
     ],
     'billing_city' => [
       'display' => 'inline',
       'field_type' => 'string',
       'label' => 'City',
       'validation' => 'required|string|max:255',
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
     ],
     'billing_state_province' => [
       'display' => 'inline',
       'field_type' => 'string',
       'label' => 'State / Province',
       'validation' => 'nullable|string|max:255',
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
     ],
     'billing_postal_code' => [
       'display' => 'inline',
       'field_type' => 'string',
       'label' => 'Postal Code',
       'validation' => 'nullable|string|max:20',
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
     ],
     'billing_country_code' => [
       'display' => 'inline',
@@ -363,6 +411,10 @@ return [
         'ZM' => 'Zambia',
         'ZW' => 'Zimbabwe',
       ],
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
     ],
     'timezone' => [
       'display' => 'inline',
@@ -370,6 +422,11 @@ return [
       'label' => 'Primary Timezone',
       'validation' => 'required|string|max:64',
       'options' => [],
+      'fillable' => true,
+      'help' => 'Used for payroll, attendance, and reports',
+      'modifiers' => [
+        'nullable' => true,
+      ],
     ],
     'currency_code' => [
       'display' => 'inline',
@@ -663,6 +720,11 @@ return [
         'ZWR' => 'Zimbabwean Dollar (2008)',
         'ZWL' => 'Zimbabwean Dollar (2009)',
       ],
+      'fillable' => true,
+      'help' => 'ISO 4217 code (e.g., USD, EUR)',
+      'modifiers' => [
+        'nullable' => true,
+      ],
     ],
     'level' => [
       'display' => 'inline',
@@ -673,6 +735,11 @@ return [
         'parent' => 'Parent Company',
         'division' => 'Division / Business Unit',
         'branch' => 'Branch',
+      ],
+      'fillable' => true,
+      'modifiers' => [
+        'default' => 'division',
+        'nullable' => true,
       ],
     ],
   ],

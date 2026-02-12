@@ -23,6 +23,8 @@ return new class extends Migration
             $table->decimal('base_salary', 10, 2)->default(0)->nullable();
             $table->string('salary_currency')->default('USD')->nullable();
             $table->string('pay_frequency')->nullable();
+            $table->foreignId('attendance_policy_id')->constrained('attendance_policies', 'id')->onDelete('restrict');
+            $table->foreignId('work_pattern_id')->constrained('work_patterns', 'id')->onDelete('restrict');
             $table->string('cost_center')->nullable();
             $table->string('work_email')->nullable();
             $table->string('work_phone_extension')->nullable();

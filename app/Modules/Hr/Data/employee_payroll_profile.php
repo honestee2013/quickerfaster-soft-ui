@@ -21,6 +21,7 @@ return [
         'column' => 'employee_number',
         'hintField' => 'first_name',
       ],
+      'fillable' => true,
     ],
     'pay_schedule_id' => [
       'display' => 'inline',
@@ -40,18 +41,27 @@ return [
         'column' => 'name',
         'hintField' => '',
       ],
+      'fillable' => true,
     ],
     'bank_account' => [
       'display' => 'inline',
       'field_type' => 'encrypted_string',
       'label' => 'Bank Account Number',
       'validation' => 'nullable|string',
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
     ],
     'bank_routing' => [
       'display' => 'inline',
       'field_type' => 'encrypted_string',
       'label' => 'Routing Number (US) / Sort Code (UK)',
       'validation' => 'nullable|string',
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
     ],
     'tax_filing_status' => [
       'display' => 'inline',
@@ -65,18 +75,32 @@ return [
         'Head of Household' => 'Head of Household',
         'Qualifying Widow' => 'Qualifying Widow',
       ],
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
     ],
     'allowances' => [
       'display' => 'inline',
       'field_type' => 'number',
       'label' => 'Withholding Allowances (W-4)',
       'validation' => 'nullable|integer|min:0',
+      'fillable' => true,
+      'modifiers' => [
+        'default' => 0,
+        'nullable' => true,
+      ],
     ],
     'is_exempt_from_federal_tax' => [
       'display' => 'inline',
       'field_type' => 'checkbox',
       'label' => 'Exempt from Federal Income Tax',
       'maxSizeMB' => 1,
+      'fillable' => true,
+      'modifiers' => [
+        'default' => false,
+        'nullable' => true,
+      ],
     ],
     'currency' => [
       'display' => 'inline',
@@ -91,6 +115,10 @@ return [
         'AUD' => 'AUD',
         'INR' => 'INR',
         'NGN' => 'NGN',
+      ],
+      'fillable' => true,
+      'modifiers' => [
+        'default' => 'USD',
       ],
     ],
   ],

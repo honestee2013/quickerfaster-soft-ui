@@ -8,6 +8,7 @@ return [
       'field_type' => 'string',
       'label' => 'Payslip Number',
       'validation' => 'required|string|max:50|unique:payroll_payslips,payslip_number',
+      'fillable' => true,
     ],
     'payroll_run_id' => [
       'display' => 'inline',
@@ -27,6 +28,7 @@ return [
         'column' => 'period_end',
         'hintField' => '',
       ],
+      'fillable' => true,
     ],
     'employee_id' => [
       'display' => 'inline',
@@ -46,36 +48,58 @@ return [
         'column' => 'employee_number',
         'hintField' => 'first_name',
       ],
+      'fillable' => true,
     ],
     'base_salary' => [
       'display' => 'inline',
       'field_type' => 'number',
       'label' => 'Base Salary (Period)',
       'validation' => 'required|numeric|min:0',
+      'fillable' => true,
+      'modifiers' => [
+        'precision' => '12,2',
+      ],
     ],
     'gross_pay' => [
       'display' => 'inline',
       'field_type' => 'number',
       'label' => 'Gross Pay',
       'validation' => 'required|numeric|min:0',
+      'fillable' => true,
+      'modifiers' => [
+        'precision' => '12,2',
+      ],
     ],
     'total_deductions' => [
       'display' => 'inline',
       'field_type' => 'number',
       'label' => 'Total Deductions',
       'validation' => 'required|numeric|min:0',
+      'fillable' => true,
+      'modifiers' => [
+        'precision' => '12,2',
+      ],
+      'default' => 0,
     ],
     'net_pay' => [
       'display' => 'inline',
       'field_type' => 'number',
       'label' => 'Net Pay',
       'validation' => 'required|numeric|min:0',
+      'fillable' => true,
+      'modifiers' => [
+        'precision' => '12,2',
+      ],
     ],
     'paid_at' => [
       'display' => 'inline',
       'field_type' => 'datetimepicker',
       'label' => 'Paid At',
       'maxSizeMB' => 1,
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
     ],
   ],
   'hiddenFields' => [

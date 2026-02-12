@@ -21,18 +21,21 @@ return [
         'column' => 'name',
         'hintField' => '',
       ],
+      'fillable' => true,
     ],
     'period_start' => [
       'display' => 'inline',
       'field_type' => 'datepicker',
       'label' => 'Pay Period Start',
       'validation' => 'required|date',
+      'fillable' => true,
     ],
     'period_end' => [
       'display' => 'inline',
       'field_type' => 'datepicker',
       'label' => 'Pay Period End',
       'validation' => 'required|date|after:period_start',
+      'fillable' => true,
     ],
     'status' => [
       'display' => 'inline',
@@ -45,24 +48,40 @@ return [
         'Paid' => 'Paid',
         'Cancelled' => 'Cancelled',
       ],
+      'fillable' => true,
+      'modifiers' => [
+        'default' => 'Draft',
+      ],
     ],
     'processed_by' => [
       'display' => 'inline',
       'field_type' => 'string',
       'label' => 'Processed By',
       'maxSizeMB' => 1,
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
     ],
     'processed_at' => [
       'display' => 'inline',
       'field_type' => 'datetimepicker',
       'label' => 'Processed At',
       'maxSizeMB' => 1,
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
     ],
     'notes' => [
       'display' => 'inline',
       'field_type' => 'textarea',
       'label' => 'Notes',
       'maxSizeMB' => 1,
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
     ],
     'payslips' => [
       'field_type' => 'checkbox',

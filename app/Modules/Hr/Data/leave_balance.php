@@ -21,6 +21,7 @@ return [
         'column' => 'employee_number',
         'hintField' => 'first_name',
       ],
+      'fillable' => true,
     ],
     'leave_type_id' => [
       'display' => 'inline',
@@ -40,18 +41,30 @@ return [
         'column' => 'name',
         'hintField' => '',
       ],
+      'fillable' => true,
     ],
     'balance' => [
       'display' => 'inline',
       'field_type' => 'number',
       'label' => 'Balance',
       'validation' => 'required|numeric|min:0',
+      'fillable' => true,
+      'modifiers' => [
+        'precision' => '6,2',
+        'default' => 0,
+      ],
     ],
     'accrual_rate' => [
       'display' => 'inline',
       'field_type' => 'number',
       'label' => 'Accrual Rate',
       'validation' => 'nullable|numeric|min:0',
+      'fillable' => true,
+      'modifiers' => [
+        'precision' => '6,2',
+        'default' => 1,
+        'nullable' => true,
+      ],
     ],
     'accrual_frequency' => [
       'display' => 'inline',
@@ -65,12 +78,17 @@ return [
         'Daily' => 'Daily',
         'None' => 'None',
       ],
+      'fillable' => true,
+      'modifiers' => [
+        'default' => 'Monthly',
+      ],
     ],
     'year' => [
       'display' => 'inline',
       'field_type' => 'number',
       'label' => 'Year',
       'validation' => 'required|integer|min:2020|max:2100',
+      'fillable' => true,
     ],
   ],
   'hiddenFields' => [

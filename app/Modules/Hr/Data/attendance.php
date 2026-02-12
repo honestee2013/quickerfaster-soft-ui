@@ -21,6 +21,11 @@ return [
         'column' => 'employee_number',
         'hintField' => 'first_name,last_name',
       ],
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
+      'icon' => 'fas fa-clock',
     ],
     'employee_number' => [
       'display' => 'inline',
@@ -33,24 +38,38 @@ return [
       'field_type' => 'string',
       'label' => 'Company Division',
       'validation' => 'nullable',
+      'modifiers' => [
+        'nullable' => true,
+      ],
     ],
     'department' => [
       'display' => 'inline',
       'field_type' => 'string',
       'label' => 'Department',
       'validation' => 'nullable',
+      'modifiers' => [
+        'nullable' => true,
+      ],
     ],
     'date' => [
       'display' => 'inline',
       'field_type' => 'datepicker',
       'label' => 'Attendance Date',
       'validation' => 'required|date',
+      'fillable' => true,
+      'formatter' => 'QuickerFaster\LaravelUI\Formatting\DateFormatter',
     ],
     'net_hours' => [
       'display' => 'inline',
       'field_type' => 'number',
       'label' => 'Total Hours Worked',
       'validation' => 'required|numeric|min:0',
+      'fillable' => true,
+      'modifiers' => [
+        'precision' => '6,2',
+        'nullable' => true,
+      ],
+      'icon' => 'fas fa-clock',
     ],
     'status' => [
       'display' => 'inline',
@@ -65,12 +84,22 @@ return [
         'holiday' => 'Holiday',
         'leave' => 'On Leave',
       ],
+      'fillable' => true,
+      'modifiers' => [
+        'default' => 'present',
+      ],
+      'icon' => 'fas fa-user-check',
     ],
     'sessions' => [
       'display' => 'inline',
       'field_type' => 'json',
       'label' => 'Work Sessions',
       'maxSizeMB' => 1,
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
+      'hidden' => true,
     ],
     'shift_id' => [
       'display' => 'inline',
@@ -90,6 +119,11 @@ return [
         'column' => 'name',
         'hintField' => '',
       ],
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
+      'icon' => 'fas fa-clock',
     ],
     'absence_type' => [
       'display' => 'inline',
@@ -104,60 +138,119 @@ return [
         'half_day' => 'Half Day',
         'excused' => 'Excused Absence',
       ],
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
+      'description' => 'Category of absence for reporting',
+      'icon' => 'fas fa-user-times',
     ],
     'is_unplanned' => [
       'display' => 'inline',
       'field_type' => 'boolcheckbox',
       'label' => 'Unplanned Absence',
       'validation' => 'boolean',
+      'fillable' => true,
+      'modifiers' => [
+        'default' => false,
+      ],
     ],
     'absence_reason' => [
       'display' => 'inline',
       'field_type' => 'textarea',
       'label' => 'Absence Reason',
       'validation' => 'nullable|string|max:1000',
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
+      'placeholder' => 'Explain reason for absence',
+      'icon' => 'fas fa-comment-alt',
     ],
     'is_paid_absence' => [
       'display' => 'inline',
       'field_type' => 'boolcheckbox',
       'label' => 'Paid Absence',
       'validation' => 'boolean',
+      'fillable' => true,
+      'modifiers' => [
+        'default' => true,
+      ],
+      'description' => 'Does this absence affect payroll?',
+      'icon' => 'fas fa-money-bill-wave',
     ],
     'hours_deducted' => [
       'display' => 'inline',
       'field_type' => 'number',
       'label' => 'Hours Deducted',
       'validation' => 'nullable|numeric|min:0|max:24',
+      'fillable' => true,
+      'modifiers' => [
+        'precision' => '6,2',
+        'default' => 0,
+        'nullable' => true,
+      ],
+      'description' => 'Leave hours deducted from balance',
+      'icon' => 'fas fa-hourglass-half',
     ],
     'is_approved' => [
       'display' => 'inline',
       'field_type' => 'boolcheckbox',
       'label' => 'Approved for Payroll',
       'validation' => 'boolean',
+      'fillable' => true,
+      'modifiers' => [
+        'default' => false,
+      ],
+      'icon' => 'fas fa-check-circle',
     ],
     'approved_by' => [
       'display' => 'inline',
       'field_type' => 'string',
       'label' => 'Approved By',
       'maxSizeMB' => 1,
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
     ],
     'approved_at' => [
       'display' => 'inline',
       'field_type' => 'datetimepicker',
       'label' => 'Approved At',
       'maxSizeMB' => 1,
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
+      'formatter' => 'QuickerFaster\LaravelUI\Formatting\DateTimeFormatter',
     ],
     'notes' => [
       'display' => 'inline',
       'field_type' => 'textarea',
       'label' => 'Notes',
       'validation' => 'nullable|string|max:1000',
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
+      'placeholder' => 'Add comments about attendance, adjustments, or exceptions',
     ],
     'needs_review' => [
       'display' => 'inline',
       'field_type' => 'boolcheckbox',
       'label' => 'Needs Review',
       'validation' => 'boolean',
+      'fillable' => true,
+      'modifiers' => [
+        'default' => true,
+      ],
+      'icon' => 'fas fa-exclamation-triangle',
+      'badge' => true,
+      'badgeColors' => [
+        'true' => 'warning',
+        'false' => 'secondary',
+      ],
     ],
     'leave_request_id' => [
       'display' => 'inline',
@@ -177,12 +270,23 @@ return [
         'column' => 'id',
         'hintField' => '',
       ],
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
+      'description' => 'Automatically linked when leave is approved',
+      'icon' => 'fas fa-umbrella-beach',
     ],
     'last_calculated_at' => [
       'display' => 'inline',
       'field_type' => 'datetimepicker',
       'label' => 'Last Calculated',
       'maxSizeMB' => 1,
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
+      'formatter' => 'QuickerFaster\LaravelUI\Formatting\DateTimeFormatter',
     ],
     'calculation_method' => [
       'display' => 'inline',
@@ -193,6 +297,123 @@ return [
         'auto' => 'Automated from Clock Events',
         'manual' => 'Manually Entered',
         'adjusted' => 'Manually Adjusted',
+      ],
+      'fillable' => true,
+      'modifiers' => [
+        'default' => 'auto',
+        'nullable' => true,
+      ],
+    ],
+    'regular_hours' => [
+      'display' => 'inline',
+      'field_type' => 'number',
+      'label' => 'Regular Hours',
+      'validation' => 'nullable|numeric|min:0',
+      'fillable' => true,
+      'modifiers' => [
+        'precision' => '6,2',
+        'default' => 0,
+      ],
+      'icon' => 'fas fa-clock',
+    ],
+    'overtime_hours' => [
+      'display' => 'inline',
+      'field_type' => 'number',
+      'label' => 'Overtime Hours',
+      'validation' => 'nullable|numeric|min:0',
+      'fillable' => true,
+      'modifiers' => [
+        'precision' => '6,2',
+        'default' => 0,
+      ],
+      'icon' => 'fas fa-money-bill-wave',
+    ],
+    'double_time_hours' => [
+      'display' => 'inline',
+      'field_type' => 'number',
+      'label' => 'Double Time Hours',
+      'validation' => 'nullable|numeric|min:0',
+      'fillable' => true,
+      'modifiers' => [
+        'precision' => '6,2',
+        'default' => 0,
+      ],
+      'icon' => 'fas fa-money-bill-wave-alt',
+    ],
+    'attendance_policy_id' => [
+      'display' => 'inline',
+      'field_type' => 'select',
+      'label' => 'Applied Policy',
+      'maxSizeMB' => 1,
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
+      'icon' => 'fas fa-gavel',
+    ],
+    'work_pattern_id' => [
+      'display' => 'inline',
+      'field_type' => 'select',
+      'label' => 'Applied Pattern',
+      'maxSizeMB' => 1,
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
+      'icon' => 'fas fa-calendar-alt',
+    ],
+    'minutes_late' => [
+      'display' => 'inline',
+      'field_type' => 'number',
+      'label' => 'Minutes Late',
+      'maxSizeMB' => 1,
+      'fillable' => true,
+      'modifiers' => [
+        'default' => 0,
+      ],
+      'icon' => 'fas fa-hourglass-end',
+    ],
+    'minutes_early_departure' => [
+      'display' => 'inline',
+      'field_type' => 'number',
+      'label' => 'Minutes Early Departure',
+      'maxSizeMB' => 1,
+      'fillable' => true,
+      'modifiers' => [
+        'default' => 0,
+      ],
+      'icon' => 'fas fa-hourglass-start',
+    ],
+    'missed_break_minutes' => [
+      'display' => 'inline',
+      'field_type' => 'number',
+      'label' => 'Missed Break (min)',
+      'maxSizeMB' => 1,
+      'fillable' => true,
+      'modifiers' => [
+        'default' => 0,
+      ],
+      'icon' => 'fas fa-utensils',
+    ],
+    'calculation_metadata' => [
+      'display' => 'inline',
+      'field_type' => 'json',
+      'label' => 'Calculation Details',
+      'maxSizeMB' => 1,
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
+      'hidden' => true,
+    ],
+    'calculation_version' => [
+      'display' => 'inline',
+      'field_type' => 'string',
+      'label' => 'Calculator Version',
+      'maxSizeMB' => 1,
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
       ],
     ],
     'attendanceSessions' => [
@@ -292,7 +513,9 @@ return [
       '16' => 'calculation_method',
       '17' => 'is_unplanned',
     ],
-    'onQuery' => [],
+    'onDetail' => [
+      '0' => 'employee_id',
+    ],
   ],
   'simpleActions' => [
     '0' => 'show',
@@ -615,7 +838,7 @@ return [
       ],
       'badgeField' => 'needs_review',
       'badgeColors' => [
-        'true' => 'danger',
+        'true' => 'warning',
         'false' => 'secondary',
       ],
     ],

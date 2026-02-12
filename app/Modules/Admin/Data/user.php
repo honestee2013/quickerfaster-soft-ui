@@ -11,6 +11,7 @@ return [
       'wizard' => [
         'user_onboarding' => true,
       ],
+      'fillable' => true,
     ],
     'email' => [
       'display' => 'inline',
@@ -20,12 +21,17 @@ return [
       'wizard' => [
         'user_onboarding' => true,
       ],
+      'fillable' => true,
     ],
     'email_verified_at' => [
       'display' => 'inline',
       'field_type' => 'datetime',
       'label' => 'Email Verified At',
       'maxSizeMB' => 1,
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
     ],
     'password' => [
       'display' => 'inline',
@@ -35,18 +41,25 @@ return [
       'wizard' => [
         'user_onboarding' => true,
       ],
+      'fillable' => true,
     ],
     'password_confirmation' => [
       'display' => 'inline',
       'field_type' => 'password',
       'label' => 'Confirm Password',
       'validation' => 'required_with:password|same:password',
+      'fillable' => false,
     ],
     'remember_token' => [
       'display' => 'inline',
       'field_type' => 'string',
       'label' => 'Remember Token',
       'maxSizeMB' => 1,
+      'fillable' => false,
+      'length' => 100,
+      'modifiers' => [
+        'nullable' => true,
+      ],
     ],
     'status' => [
       'display' => 'inline',
@@ -57,6 +70,11 @@ return [
         'active' => 'Active',
         'inactive' => 'Inactive',
         'invited' => 'Invited',
+      ],
+      'fillable' => true,
+      'default' => 'invited',
+      'modifiers' => [
+        'nullable' => false,
       ],
     ],
     'roles' => [

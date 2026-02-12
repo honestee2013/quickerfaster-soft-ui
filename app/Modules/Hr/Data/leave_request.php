@@ -24,6 +24,7 @@ return [
       'wizard' => [
         'employee_self_service' => true,
       ],
+      'fillable' => true,
     ],
     'leave_type_id' => [
       'display' => 'inline',
@@ -46,6 +47,7 @@ return [
       'wizard' => [
         'employee_self_service' => true,
       ],
+      'fillable' => true,
     ],
     'start_date' => [
       'display' => 'inline',
@@ -55,6 +57,7 @@ return [
       'wizard' => [
         'employee_self_service' => true,
       ],
+      'fillable' => true,
     ],
     'end_date' => [
       'display' => 'inline',
@@ -64,6 +67,7 @@ return [
       'wizard' => [
         'employee_self_service' => true,
       ],
+      'fillable' => true,
     ],
     'reason' => [
       'display' => 'inline',
@@ -72,6 +76,10 @@ return [
       'validation' => 'nullable|string|max:1000',
       'wizard' => [
         'employee_self_service' => true,
+      ],
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
       ],
     ],
     'status' => [
@@ -84,6 +92,10 @@ return [
         'Approved' => 'Approved',
         'Denied' => 'Denied',
         'Cancelled' => 'Cancelled',
+      ],
+      'fillable' => true,
+      'modifiers' => [
+        'default' => 'Pending',
       ],
     ],
     'approved_by' => [
@@ -104,60 +116,103 @@ return [
         'column' => 'employee_number',
         'hintField' => 'first_name',
       ],
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
     ],
     'approved_at' => [
       'display' => 'inline',
       'field_type' => 'datetime',
       'label' => 'Approved At',
       'validation' => 'nullable|date',
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
     ],
     'denial_reason' => [
       'display' => 'inline',
       'field_type' => 'textarea',
       'label' => 'Denial Reason',
       'validation' => 'nullable|string|max:1000',
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
     ],
     'attendance_synced' => [
       'display' => 'inline',
       'field_type' => 'boolcheckbox',
       'label' => 'Synced to Attendance',
       'validation' => 'boolean',
+      'fillable' => true,
+      'modifiers' => [
+        'default' => false,
+      ],
+      'description' => 'Auto-created attendance records',
     ],
     'attendance_records_count' => [
       'display' => 'inline',
       'field_type' => 'number',
       'label' => 'Attendance Days Created',
       'validation' => 'integer|min:0',
+      'fillable' => true,
+      'modifiers' => [
+        'default' => 0,
+      ],
     ],
     'last_sync_at' => [
       'display' => 'inline',
       'field_type' => 'datetime',
       'label' => 'Last Sync Time',
       'validation' => 'nullable|date',
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
     ],
     'is_retroactive' => [
       'display' => 'inline',
       'field_type' => 'boolcheckbox',
       'label' => 'Retroactive Request',
       'validation' => 'boolean',
+      'fillable' => true,
+      'modifiers' => [
+        'default' => false,
+      ],
+      'description' => 'Request submitted after absence',
     ],
     'reported_after_absence' => [
       'display' => 'inline',
       'field_type' => 'boolcheckbox',
       'label' => 'Reported Post-Absence',
       'validation' => 'boolean',
+      'fillable' => true,
+      'modifiers' => [
+        'default' => false,
+      ],
     ],
     'workdays_count' => [
       'display' => 'inline',
       'field_type' => 'number',
       'label' => 'Working Days',
       'validation' => 'nullable|integer|min:1',
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
+      'description' => 'Calculated excluding weekends/holidays',
     ],
     'overlap_with_holiday' => [
       'display' => 'inline',
       'field_type' => 'boolcheckbox',
       'label' => 'Overlaps Company Holiday',
       'validation' => 'boolean',
+      'fillable' => true,
+      'modifiers' => [
+        'default' => false,
+      ],
     ],
     'attendanceRecords' => [
       'field_type' => 'checkbox',

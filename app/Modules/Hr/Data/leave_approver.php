@@ -21,6 +21,7 @@ return [
         'column' => 'employee_number',
         'hintField' => 'first_name',
       ],
+      'fillable' => true,
     ],
     'approver_id' => [
       'display' => 'inline',
@@ -40,12 +41,17 @@ return [
         'column' => 'employee_number',
         'hintField' => 'first_name',
       ],
+      'fillable' => true,
     ],
     'approval_level' => [
       'display' => 'inline',
       'field_type' => 'number',
       'label' => 'Approval Level',
       'validation' => 'required|integer|min:1|max:3',
+      'fillable' => true,
+      'modifiers' => [
+        'default' => 1,
+      ],
     ],
     'can_approve_all_types' => [
       'display' => 'inline',
@@ -56,18 +62,30 @@ return [
         'Yes' => 'Yes',
         'No' => 'No',
       ],
+      'fillable' => true,
+      'modifiers' => [
+        'default' => true,
+      ],
     ],
     'leave_type_ids' => [
       'display' => 'inline',
       'field_type' => 'multiselect',
       'label' => 'Leave Types',
       'validation' => 'required_if:can_approve_all_types,No|array',
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
     ],
     'max_approval_days' => [
       'display' => 'inline',
       'field_type' => 'number',
       'label' => 'Max Approval Days',
       'validation' => 'nullable|integer|min:1',
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
     ],
     'is_active' => [
       'display' => 'inline',
@@ -77,6 +95,10 @@ return [
       'options' => [
         'Yes' => 'Yes',
         'No' => 'No',
+      ],
+      'fillable' => true,
+      'modifiers' => [
+        'default' => true,
       ],
     ],
     'leaveTypes' => [

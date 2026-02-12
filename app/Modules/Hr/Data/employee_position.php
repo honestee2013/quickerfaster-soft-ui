@@ -21,6 +21,7 @@ return [
         'column' => 'employee_number',
         'hintField' => 'first_name',
       ],
+      'fillable' => true,
     ],
     'job_title_id' => [
       'display' => 'inline',
@@ -43,6 +44,7 @@ return [
       'wizard' => [
         'employee_onboarding' => true,
       ],
+      'fillable' => true,
     ],
     'department_id' => [
       'display' => 'inline',
@@ -65,6 +67,7 @@ return [
       'wizard' => [
         'employee_onboarding' => true,
       ],
+      'fillable' => true,
     ],
     'manager_id' => [
       'display' => 'inline',
@@ -87,6 +90,10 @@ return [
       'wizard' => [
         'employee_onboarding' => true,
       ],
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
     ],
     'pay_type' => [
       'display' => 'inline',
@@ -101,14 +108,21 @@ return [
       'wizard' => [
         'employee_onboarding' => true,
       ],
+      'fillable' => true,
     ],
     'hourly_rate' => [
       'display' => 'inline',
       'field_type' => 'number',
       'label' => 'Hourly Rate',
-      'validation' => 'required|numeric|min:0',
+      'validation' => 'required_if:pay_type,hourly|numeric|min:0',
       'wizard' => [
         'employee_onboarding' => true,
+      ],
+      'fillable' => true,
+      'modifiers' => [
+        'precision' => '10,2',
+        'default' => 0,
+        'nullable' => true,
       ],
     ],
     'employment_status' => [
@@ -124,6 +138,11 @@ return [
       ],
       'wizard' => [
         'employee_onboarding' => true,
+      ],
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+        'default' => 'Active',
       ],
     ],
     'location_id' => [
@@ -147,6 +166,10 @@ return [
       'wizard' => [
         'employee_onboarding' => true,
       ],
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
     ],
     'start_date' => [
       'display' => 'inline',
@@ -156,27 +179,38 @@ return [
       'wizard' => [
         'employee_onboarding' => true,
       ],
+      'fillable' => true,
     ],
     'end_date' => [
       'display' => 'inline',
       'field_type' => 'datepicker',
       'label' => 'End Date',
       'validation' => 'nullable|date|after:start_date',
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
     ],
     'base_salary' => [
       'display' => 'inline',
       'field_type' => 'number',
       'label' => 'Base Salary',
-      'validation' => 'required|numeric|min:0',
+      'validation' => 'required_if:pay_type,salaried_daily,salaried_full|numeric|min:0',
       'wizard' => [
         'employee_onboarding' => true,
+      ],
+      'fillable' => true,
+      'modifiers' => [
+        'precision' => '10,2',
+        'default' => 0,
+        'nullable' => true,
       ],
     ],
     'salary_currency' => [
       'display' => 'inline',
       'field_type' => 'select',
       'label' => 'Salary Currency',
-      'validation' => 'required',
+      'validation' => 'required_if:base_salary,>,0',
       'options' => [
         'USD' => 'USD',
         'EUR' => 'EUR',
@@ -190,12 +224,17 @@ return [
       'wizard' => [
         'employee_onboarding' => true,
       ],
+      'fillable' => true,
+      'modifiers' => [
+        'default' => 'USD',
+        'nullable' => true,
+      ],
     ],
     'pay_frequency' => [
       'display' => 'inline',
       'field_type' => 'select',
       'label' => 'Pay Frequency',
-      'validation' => 'required',
+      'validation' => 'required_if:base_salary,>,0',
       'options' => [
         'Monthly' => 'Monthly',
         'Semi-monthly' => 'Semi-monthly',
@@ -206,12 +245,68 @@ return [
       'wizard' => [
         'employee_onboarding' => true,
       ],
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
+    ],
+    'attendance_policy_id' => [
+      'display' => 'inline',
+      'field_type' => 'select',
+      'label' => 'Attendance Policy',
+      'validation' => 'nullable|exists:attendance_policies,id',
+      'relationship' => [
+        'model' => 'App\Modules\Hr\Models\AttendancePolicy',
+        'type' => 'belongsTo',
+        'display_field' => 'name',
+        'dynamic_property' => 'attendancePolicy',
+        'foreign_key' => 'attendance_policy_id',
+        'inlineAdd' => false,
+      ],
+      'options' => [
+        'model' => 'App\Modules\Hr\Models\AttendancePolicy',
+        'column' => 'name',
+        'hintField' => '',
+      ],
+      'wizard' => [
+        'employee_onboarding' => true,
+      ],
+      'fillable' => true,
+      'description' => 'Rules for attendance, punctuality, and leave',
+    ],
+    'work_pattern_id' => [
+      'display' => 'inline',
+      'field_type' => 'select',
+      'label' => 'Work Pattern',
+      'validation' => 'nullable|exists:work_patterns,id',
+      'relationship' => [
+        'model' => 'App\Modules\Hr\Models\WorkPattern',
+        'type' => 'belongsTo',
+        'display_field' => 'name',
+        'dynamic_property' => 'workPattern',
+        'foreign_key' => 'work_pattern_id',
+        'inlineAdd' => false,
+      ],
+      'options' => [
+        'model' => 'App\Modules\Hr\Models\WorkPattern',
+        'column' => 'name',
+        'hintField' => '',
+      ],
+      'wizard' => [
+        'employee_onboarding' => true,
+      ],
+      'fillable' => true,
+      'description' => 'Regular work schedule and hours',
     ],
     'cost_center' => [
       'display' => 'inline',
       'field_type' => 'string',
       'label' => 'Cost Center',
       'maxSizeMB' => 1,
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
     ],
     'work_email' => [
       'display' => 'inline',
@@ -221,12 +316,20 @@ return [
       'wizard' => [
         'employee_onboarding' => true,
       ],
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
     ],
     'work_phone_extension' => [
       'display' => 'inline',
       'field_type' => 'string',
       'label' => 'Work Phone Extension',
       'maxSizeMB' => 1,
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
     ],
     'reports_to' => [
       'display' => 'inline',
@@ -246,12 +349,20 @@ return [
         'column' => 'employee_number',
         'hintField' => 'first_name',
       ],
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
     ],
     'job_description' => [
       'display' => 'inline',
       'field_type' => 'textarea',
       'label' => 'Job Description',
       'maxSizeMB' => 1,
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
     ],
     'is_primary' => [
       'display' => 'inline',
@@ -261,6 +372,10 @@ return [
       'options' => [
         'Yes' => 'Yes',
         'No' => 'No',
+      ],
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
       ],
     ],
   ],
@@ -288,6 +403,8 @@ return [
         '2' => 'department_id',
         '3' => 'manager_id',
         '4' => 'reports_to',
+        '5' => 'attendance_policy_id',
+        '6' => 'work_pattern_id',
       ],
     ],
     'employment_details' => [
@@ -370,6 +487,20 @@ return [
       'model' => 'App\Modules\Hr\Models\Location',
       'foreignKey' => 'location_id',
       'displayField' => 'name',
+    ],
+    'attendancePolicy' => [
+      'type' => 'belongsTo',
+      'model' => 'App\Modules\Hr\Models\AttendancePolicy',
+      'foreignKey' => 'attendance_policy_id',
+      'displayField' => 'name',
+      'descriptionField' => 'description',
+    ],
+    'workPattern' => [
+      'type' => 'belongsTo',
+      'model' => 'App\Modules\Hr\Models\WorkPattern',
+      'foreignKey' => 'work_pattern_id',
+      'displayField' => 'name',
+      'descriptionField' => 'description',
     ],
   ],
   'report' => [],

@@ -21,18 +21,22 @@ return [
         'column' => 'employee_number',
         'hintField' => 'first_name',
       ],
+      'fillable' => true,
     ],
     'document' => [
       'display' => 'inline',
       'field_type' => 'file',
       'label' => 'Document',
       'validation' => 'required|file|max:1024',
+      'fillable' => true,
+      'fileType' => 'document',
     ],
     'name' => [
       'display' => 'inline',
       'field_type' => 'string',
       'label' => 'Document Name',
       'validation' => 'required|string|max:255',
+      'fillable' => true,
     ],
     'type' => [
       'display' => 'inline',
@@ -49,24 +53,37 @@ return [
         'Performance Review' => 'Performance Review',
         'Other' => 'Other',
       ],
+      'fillable' => true,
     ],
     'uploaded_at' => [
       'display' => 'inline',
       'field_type' => 'datepicker',
       'label' => 'Uploaded At',
       'validation' => 'nullable|date',
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
     ],
     'expiry_date' => [
       'display' => 'inline',
       'field_type' => 'datepicker',
       'label' => 'Expiry Date',
       'maxSizeMB' => 1,
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
     ],
     'description' => [
       'display' => 'inline',
       'field_type' => 'textarea',
       'label' => 'Description',
       'maxSizeMB' => 1,
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
     ],
   ],
   'hiddenFields' => [

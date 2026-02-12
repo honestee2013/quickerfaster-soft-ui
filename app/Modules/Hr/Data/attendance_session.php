@@ -21,6 +21,8 @@ return [
         'column' => 'date',
         'hintField' => 'employee_id',
       ],
+      'fillable' => true,
+      'icon' => 'fas fa-calendar-day',
     ],
     'clock_in_event_id' => [
       'display' => 'inline',
@@ -39,6 +41,10 @@ return [
         'model' => 'App\Modules\Hr\Models\ClockEvent',
         'column' => 'timestamp',
         'hintField' => 'method',
+      ],
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
       ],
     ],
     'clock_out_event_id' => [
@@ -59,24 +65,43 @@ return [
         'column' => 'timestamp',
         'hintField' => 'method',
       ],
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
     ],
     'start_time' => [
       'display' => 'inline',
       'field_type' => 'datetimepicker',
       'label' => 'Session Start',
       'validation' => 'required|date',
+      'fillable' => true,
+      'icon' => 'fas fa-play-circle',
+      'formatter' => 'QuickerFaster\LaravelUI\Formatting\DateTimeFormatter',
     ],
     'end_time' => [
       'display' => 'inline',
       'field_type' => 'datetimepicker',
       'label' => 'Session End',
       'validation' => 'required|date|after:start_time',
+      'fillable' => true,
+      'icon' => 'fas fa-stop-circle',
+      'modifiers' => [
+        'nullable' => true,
+      ],
+      'formatter' => 'QuickerFaster\LaravelUI\Formatting\DateTimeFormatter',
     ],
     'duration_hours' => [
       'display' => 'inline',
       'field_type' => 'number',
       'label' => 'Duration (hours)',
       'validation' => 'required|numeric|min:0|max:24',
+      'fillable' => true,
+      'modifiers' => [
+        'precision' => '6,2',
+        'default' => 0,
+      ],
+      'icon' => 'fas fa-hourglass-half',
     ],
     'session_type' => [
       'display' => 'inline',
@@ -92,42 +117,76 @@ return [
         'on_call' => 'On-Call',
         'travel' => 'Travel Time',
       ],
+      'fillable' => true,
+      'modifiers' => [
+        'default' => 'work',
+        'nullable' => true,
+      ],
+      'icon' => 'fas fa-tag',
     ],
     'is_overnight' => [
       'display' => 'inline',
       'field_type' => 'boolcheckbox',
       'label' => 'Overnight Session',
       'validation' => 'boolean',
+      'fillable' => true,
+      'modifiers' => [
+        'default' => false,
+      ],
     ],
     'is_adjusted' => [
       'display' => 'inline',
       'field_type' => 'boolcheckbox',
       'label' => 'Manually Adjusted',
       'validation' => 'boolean',
+      'fillable' => true,
+      'modifiers' => [
+        'default' => false,
+      ],
+      'icon' => 'fas fa-edit',
     ],
     'adjustment_reason' => [
       'display' => 'inline',
       'field_type' => 'textarea',
       'label' => 'Adjustment Reason',
       'validation' => 'required|string|max:500',
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
+      'placeholder' => 'Explain why this session was adjusted',
     ],
     'adjusted_by' => [
       'display' => 'inline',
       'field_type' => 'string',
       'label' => 'Adjusted By',
       'validation' => 'nullable|string',
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
     ],
     'adjusted_at' => [
       'display' => 'inline',
       'field_type' => 'datetimepicker',
       'label' => 'Adjusted At',
       'maxSizeMB' => 1,
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
+      'formatter' => 'QuickerFaster\LaravelUI\Formatting\DateTimeFormatter',
     ],
     'calculated_duration' => [
       'display' => 'inline',
       'field_type' => 'number',
       'label' => 'Calculated Duration',
       'maxSizeMB' => 1,
+      'fillable' => true,
+      'modifiers' => [
+        'precision' => '6,2',
+        'nullable' => true,
+      ],
     ],
     'validation_status' => [
       'display' => 'inline',
@@ -141,12 +200,21 @@ return [
         'too_short' => 'Session Too Short',
         'too_long' => 'Session Too Long',
       ],
+      'fillable' => true,
+      'modifiers' => [
+        'default' => 'valid',
+        'nullable' => true,
+      ],
     ],
     'validation_notes' => [
       'display' => 'inline',
       'field_type' => 'textarea',
       'label' => 'Validation Notes',
       'maxSizeMB' => 1,
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
     ],
   ],
   'hiddenFields' => [

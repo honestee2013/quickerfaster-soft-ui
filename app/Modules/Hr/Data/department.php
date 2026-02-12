@@ -8,6 +8,7 @@ return [
       'field_type' => 'string',
       'label' => 'Department Name',
       'validation' => 'required|string|max:255',
+      'fillable' => true,
     ],
     'code' => [
       'display' => 'inline',
@@ -15,12 +16,17 @@ return [
       'label' => 'Department Code',
       'validation' => 'required|string|max:50|unique:departments,code',
       'autoGenerate' => true,
+      'fillable' => true,
     ],
     'description' => [
       'display' => 'inline',
       'field_type' => 'textarea',
       'label' => 'Description',
       'maxSizeMB' => 1,
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
     ],
     'company_id' => [
       'display' => 'inline',
@@ -40,6 +46,7 @@ return [
         'column' => 'name',
         'hintField' => '',
       ],
+      'fillable' => true,
     ],
     'parent_department_id' => [
       'display' => 'inline',
@@ -59,18 +66,31 @@ return [
         'column' => 'name',
         'hintField' => '',
       ],
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
     ],
     'cost_center' => [
       'display' => 'inline',
       'field_type' => 'string',
       'label' => 'Cost Center',
       'maxSizeMB' => 1,
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
     ],
     'is_active' => [
       'display' => 'inline',
       'field_type' => 'boolcheckbox',
       'label' => 'Is Active',
       'validation' => 'nullable|boolean',
+      'fillable' => true,
+      'modifiers' => [
+        'default' => true,
+        'nullable' => true,
+      ],
     ],
     'childDepartments' => [
       'field_type' => 'checkbox',

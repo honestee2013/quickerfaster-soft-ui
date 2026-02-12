@@ -71,7 +71,9 @@
     '16' => 'calculation_method',
     '17' => 'is_unplanned',
 ],
-    'onQuery' => [],
+    'onDetail' => [
+    '0' => 'employee_id',
+],
 ]"
             :queryFilters="[]"
         />

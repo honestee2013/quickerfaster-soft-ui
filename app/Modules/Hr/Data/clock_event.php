@@ -22,12 +22,16 @@ return [
         'meal_start' => 'Meal Start',
         'meal_end' => 'Meal End',
       ],
+      'fillable' => true,
+      'icon' => 'fas fa-clock',
     ],
     'timestamp' => [
       'display' => 'inline',
       'field_type' => 'datetimepicker',
       'label' => 'Event Time',
       'validation' => 'required|date',
+      'fillable' => true,
+      'formatter' => 'QuickerFaster\LaravelUI\Formatting\DateTimeFormatter',
     ],
     'method' => [
       'display' => 'inline',
@@ -42,48 +46,83 @@ return [
         'api' => 'API Integration',
         'manual' => 'Manual Entry',
       ],
+      'fillable' => true,
+      'modifiers' => [
+        'default' => 'web',
+      ],
     ],
     'latitude' => [
       'display' => 'inline',
       'field_type' => 'number',
       'label' => 'Latitude',
       'validation' => 'nullable|numeric|between:-90,90',
+      'fillable' => true,
+      'modifiers' => [
+        'precision' => '10,8',
+        'nullable' => true,
+      ],
     ],
     'longitude' => [
       'display' => 'inline',
       'field_type' => 'number',
       'label' => 'Longitude',
       'validation' => 'nullable|numeric|between:-180,180',
+      'fillable' => true,
+      'modifiers' => [
+        'precision' => '11,8',
+        'nullable' => true,
+      ],
     ],
     'location_name' => [
       'display' => 'inline',
       'field_type' => 'string',
       'label' => 'Location Name',
       'validation' => 'nullable|string|max:255',
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
     ],
     'timezone' => [
       'display' => 'inline',
       'field_type' => 'string',
       'label' => 'Timezone',
       'validation' => 'nullable|timezone',
+      'fillable' => true,
+      'modifiers' => [
+        'default' => 'UTC',
+        'nullable' => true,
+      ],
     ],
     'ip_address' => [
       'display' => 'inline',
       'field_type' => 'string',
       'label' => 'IP Address',
       'validation' => 'nullable|ip',
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
     ],
     'device_id' => [
       'display' => 'inline',
       'field_type' => 'string',
       'label' => 'Device ID',
       'validation' => 'nullable|string|max:100',
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
     ],
     'device_name' => [
       'display' => 'inline',
       'field_type' => 'string',
       'label' => 'Device Name',
       'validation' => 'nullable|string|max:100',
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
     ],
     'sync_status' => [
       'display' => 'inline',
@@ -96,12 +135,22 @@ return [
         'failed' => 'Sync Failed',
         'manual' => 'Manual Entry',
       ],
+      'fillable' => true,
+      'modifiers' => [
+        'default' => 'pending',
+        'nullable' => true,
+      ],
     ],
     'sync_attempts' => [
       'display' => 'inline',
       'field_type' => 'number',
       'label' => 'Sync Attempts',
       'validation' => 'nullable|integer|min:0',
+      'fillable' => true,
+      'modifiers' => [
+        'default' => 0,
+        'nullable' => true,
+      ],
     ],
   ],
   'hiddenFields' => [

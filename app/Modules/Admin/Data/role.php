@@ -11,12 +11,17 @@ return [
       'wizard' => [
         'role_setup' => true,
       ],
+      'fillable' => true,
     ],
     'description' => [
       'display' => 'inline',
       'field_type' => 'textarea',
       'label' => 'Description',
       'validation' => 'nullable|string|max:1000',
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
     ],
     'editable' => [
       'display' => 'inline',
@@ -27,6 +32,8 @@ return [
         'Yes' => 'Yes',
         'No' => 'No',
       ],
+      'fillable' => true,
+      'default' => 'No',
     ],
     'guard_name' => [
       'display' => 'inline',
@@ -37,6 +44,8 @@ return [
         'web' => 'Web',
         'api' => 'API',
       ],
+      'fillable' => true,
+      'default' => 'web',
     ],
   ],
   'hiddenFields' => [

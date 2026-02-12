@@ -8,6 +8,7 @@ return [
       'field_type' => 'string',
       'label' => 'Schedule Name',
       'validation' => 'required|string|max:100',
+      'fillable' => true,
     ],
     'frequency' => [
       'display' => 'inline',
@@ -20,18 +21,26 @@ return [
         'Semi-monthly' => 'Semi-monthly',
         'Monthly' => 'Monthly',
       ],
+      'fillable' => true,
     ],
     'next_pay_date' => [
       'display' => 'inline',
       'field_type' => 'datepicker',
       'label' => 'Next Pay Date',
       'validation' => 'required|date',
+      'fillable' => true,
+      'formatter' => 'QuickerFaster\LaravelUI\Formatting\DateTimeFormatter',
     ],
     'is_active' => [
       'display' => 'inline',
       'field_type' => 'boolcheckbox',
       'label' => 'Active',
       'validation' => 'nullable|boolean',
+      'fillable' => true,
+      'modifiers' => [
+        'default' => true,
+      ],
+      'formatter' => 'QuickerFaster\LaravelUI\Formatting\BooleanFormatter',
     ],
   ],
   'hiddenFields' => [

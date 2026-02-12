@@ -10,6 +10,8 @@ use App\Modules\Hr\Models\Employee;
 use App\Modules\Hr\Models\JobTitle;
 use App\Modules\Hr\Models\Department;
 use App\Modules\Hr\Models\Location;
+use App\Modules\Hr\Models\AttendancePolicy;
+use App\Modules\Hr\Models\WorkPattern;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -30,7 +32,7 @@ class EmployeePosition extends Model
     
 
     protected $fillable = [
-        'employee_id', 'job_title_id', 'department_id', 'manager_id', 'pay_type', 'hourly_rate', 'employment_status', 'location_id', 'start_date', 'end_date', 'base_salary', 'salary_currency', 'pay_frequency', 'cost_center', 'work_email', 'work_phone_extension', 'reports_to', 'job_description', 'is_primary'
+        'employee_id', 'job_title_id', 'department_id', 'manager_id', 'pay_type', 'hourly_rate', 'employment_status', 'location_id', 'start_date', 'end_date', 'base_salary', 'salary_currency', 'pay_frequency', 'attendance_policy_id', 'work_pattern_id', 'cost_center', 'work_email', 'work_phone_extension', 'reports_to', 'job_description', 'is_primary'
     ];
 
     protected $guarded = [
@@ -121,6 +123,16 @@ class EmployeePosition extends Model
     public function location()
     {
         return $this->belongsTo(\App\Modules\Hr\Models\Location::class, 'location_id', 'id');
+    }
+
+    public function attendancePolicy()
+    {
+        return $this->belongsTo(\App\Modules\Hr\Models\AttendancePolicy::class, 'attendance_policy_id', 'id');
+    }
+
+    public function workPattern()
+    {
+        return $this->belongsTo(\App\Modules\Hr\Models\WorkPattern::class, 'work_pattern_id', 'id');
     }
 
     /**

@@ -31,7 +31,7 @@ class Attendance extends Model
     
 
     protected $fillable = [
-        'employee_id', 'employee_number', 'company', 'department', 'date', 'net_hours', 'status', 'sessions', 'shift_id', 'absence_type', 'is_unplanned', 'absence_reason', 'is_paid_absence', 'hours_deducted', 'is_approved', 'approved_by', 'approved_at', 'notes', 'needs_review', 'leave_request_id', 'last_calculated_at', 'calculation_method'
+        'employee_id', 'employee_number', 'company', 'department', 'date', 'net_hours', 'status', 'sessions', 'shift_id', 'absence_type', 'is_unplanned', 'absence_reason', 'is_paid_absence', 'hours_deducted', 'is_approved', 'approved_by', 'approved_at', 'notes', 'needs_review', 'leave_request_id', 'last_calculated_at', 'calculation_method', 'regular_hours', 'overtime_hours', 'double_time_hours', 'attendance_policy_id', 'work_pattern_id', 'minutes_late', 'minutes_early_departure', 'missed_break_minutes', 'calculation_metadata', 'calculation_version'
     ];
 
     protected $guarded = [
@@ -48,7 +48,14 @@ class Attendance extends Model
         'is_approved' => 'boolean',
         'approved_at' => 'datetime',
         'needs_review' => 'boolean',
-        'last_calculated_at' => 'datetime'
+        'last_calculated_at' => 'datetime',
+        'regular_hours' => 'decimal:2',
+        'overtime_hours' => 'decimal:2',
+        'double_time_hours' => 'decimal:2',
+        'minutes_late' => 'integer',
+        'minutes_early_departure' => 'integer',
+        'missed_break_minutes' => 'integer',
+        'calculation_metadata' => 'json'
     ];
 
     protected $dispatchesEvents = [

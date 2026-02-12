@@ -8,6 +8,12 @@ return [
     'permission' => 'view_department',
 ],
     [
+    'title' => 'Policies',
+    'icon' => 'fas fa-gavel',
+    'url' => 'hr/attendance-policies',
+    'permission' => 'view_attendance_policy',
+],
+    [
     'title' => 'Employees',
     'icon' => 'fas fa-user-friends',
     'url' => 'hr/employees',

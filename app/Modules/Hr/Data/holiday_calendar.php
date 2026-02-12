@@ -8,6 +8,9 @@ return [
       'field_type' => 'string',
       'label' => 'Calendar Name',
       'validation' => 'required|string|max:100',
+      'fillable' => true,
+      'placeholder' => 'US Holidays 2024, UK Bank Holidays, Company Holidays',
+      'icon' => 'fas fa-calendar-alt',
     ],
     'country_code' => [
       'display' => 'inline',
@@ -22,30 +25,61 @@ return [
         'IN' => 'India',
         'NG' => 'Nigeria',
       ],
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
+      'description' => 'Primary country for this calendar',
+      'icon' => 'fas fa-globe',
     ],
     'region' => [
       'display' => 'inline',
       'field_type' => 'string',
       'label' => 'Region/State',
       'validation' => 'nullable|string|max:100',
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
+      'description' => 'State, province, or region (if applicable)',
+      'placeholder' => 'California, Ontario, England',
+      'icon' => 'fas fa-map-marker-alt',
     ],
     'is_default' => [
       'display' => 'inline',
       'field_type' => 'boolcheckbox',
       'label' => 'Default Calendar',
       'validation' => 'boolean',
+      'fillable' => true,
+      'modifiers' => [
+        'default' => false,
+      ],
+      'description' => 'Use as default for new employees',
+      'icon' => 'fas fa-star',
     ],
     'is_active' => [
       'display' => 'inline',
       'field_type' => 'boolcheckbox',
       'label' => 'Active',
       'validation' => 'boolean',
+      'fillable' => true,
+      'modifiers' => [
+        'default' => true,
+      ],
+      'description' => 'Calendar is currently in use',
+      'icon' => 'fas fa-toggle-on',
     ],
     'description' => [
       'display' => 'inline',
       'field_type' => 'textarea',
       'label' => 'Description',
       'validation' => 'nullable|string|max:500',
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
+      'placeholder' => 'Description of this holiday calendar and its usage',
+      'icon' => 'fas fa-align-left',
     ],
     'applicable_to' => [
       'display' => 'inline',
@@ -58,6 +92,11 @@ return [
         'specific_locations' => 'Specific Locations',
         'employee_groups' => 'Employee Groups',
       ],
+      'fillable' => true,
+      'modifiers' => [
+        'default' => 'all_employees',
+      ],
+      'icon' => 'fas fa-users',
     ],
     'year' => [
       'display' => 'inline',
@@ -71,18 +110,34 @@ return [
         '2029' => 2029,
         '2030' => 2030,
       ],
+      'fillable' => true,
+      'modifiers' => [
+        'default' => 2026,
+        'nullable' => true,
+      ],
+      'description' => 'Primary year for this calendar',
+      'icon' => 'fas fa-calendar',
     ],
     'holiday_count' => [
       'display' => 'inline',
       'field_type' => 'number',
       'label' => 'Number of Holidays',
       'maxSizeMB' => 1,
+      'fillable' => true,
+      'modifiers' => [
+        'default' => 0,
+      ],
     ],
     'last_updated' => [
       'display' => 'inline',
       'field_type' => 'datetimepicker',
       'label' => 'Last Updated',
       'maxSizeMB' => 1,
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
+      'formatter' => 'QuickerFaster\LaravelUI\Formatting\DateTimeFormatter',
     ],
     'holidays' => [
       'field_type' => 'checkbox',

@@ -12,6 +12,7 @@ return [
       'wizard' => [
         'employee_onboarding' => true,
       ],
+      'fillable' => true,
     ],
     'first_name' => [
       'display' => 'inline',
@@ -21,6 +22,7 @@ return [
       'wizard' => [
         'employee_onboarding' => true,
       ],
+      'fillable' => true,
     ],
     'last_name' => [
       'display' => 'inline',
@@ -30,12 +32,17 @@ return [
       'wizard' => [
         'employee_onboarding' => true,
       ],
+      'fillable' => true,
     ],
     'phone' => [
       'display' => 'inline',
       'field_type' => 'string',
       'label' => 'Phone',
       'maxSizeMB' => 1,
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
     ],
     'hire_date' => [
       'display' => 'inline',
@@ -45,6 +52,7 @@ return [
       'wizard' => [
         'employee_onboarding' => true,
       ],
+      'fillable' => true,
     ],
     'department_id' => [
       'display' => 'inline',
@@ -67,6 +75,7 @@ return [
       'wizard' => [
         'employee_onboarding' => true,
       ],
+      'fillable' => true,
     ],
     'status' => [
       'display' => 'inline',
@@ -81,12 +90,21 @@ return [
       'wizard' => [
         'employee_onboarding' => true,
       ],
+      'fillable' => true,
+      'modifiers' => [
+        'default' => 'Active',
+        'nullable' => true,
+      ],
     ],
     'date_of_birth' => [
       'display' => 'inline',
       'field_type' => 'datepicker',
       'label' => 'Date Of Birth',
       'validation' => 'nullable|date',
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
     ],
     'gender' => [
       'display' => 'inline',
@@ -99,6 +117,10 @@ return [
         'Non-binary' => 'Non-binary',
         'Prefer not to say' => 'Prefer not to say',
       ],
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
     ],
     'email' => [
       'display' => 'inline',
@@ -107,6 +129,10 @@ return [
       'validation' => 'nullable|email|unique:employees,email',
       'wizard' => [
         'employee_onboarding' => true,
+      ],
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
       ],
     ],
     'user_id' => [
@@ -127,12 +153,20 @@ return [
         'column' => 'name',
         'hintField' => 'email',
       ],
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
     ],
     'nationality' => [
       'display' => 'inline',
       'field_type' => 'string',
       'label' => 'Nationality',
       'maxSizeMB' => 1,
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
     ],
     'marital_status' => [
       'display' => 'inline',
@@ -145,36 +179,60 @@ return [
         'Divorced' => 'Divorced',
         'Widowed' => 'Widowed',
       ],
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
     ],
     'address_street' => [
       'display' => 'inline',
       'field_type' => 'string',
       'label' => 'Address Street',
       'maxSizeMB' => 1,
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
     ],
     'address_city' => [
       'display' => 'inline',
       'field_type' => 'string',
       'label' => 'Address City',
       'maxSizeMB' => 1,
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
     ],
     'address_state' => [
       'display' => 'inline',
       'field_type' => 'string',
       'label' => 'Address State',
       'maxSizeMB' => 1,
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
     ],
     'address_postal_code' => [
       'display' => 'inline',
       'field_type' => 'string',
       'label' => 'Address Postal Code',
       'maxSizeMB' => 1,
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
     ],
     'address_country' => [
       'display' => 'inline',
       'field_type' => 'string',
       'label' => 'Address Country',
       'maxSizeMB' => 1,
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
     ],
     'documents' => [
       'field_type' => 'checkbox',

@@ -8,12 +8,15 @@ return [
       'field_type' => 'string',
       'label' => 'Leave Type Name',
       'validation' => 'required|string|max:255',
+      'fillable' => true,
     ],
     'code' => [
       'display' => 'inline',
       'field_type' => 'string',
       'label' => 'Short Code',
       'validation' => 'required|string|max:10|unique:leave_types,code',
+      'fillable' => true,
+      'hint' => 'e.g., "VAC", "SICK"',
     ],
     'deducts_from_balance' => [
       'display' => 'inline',
@@ -23,6 +26,10 @@ return [
       'options' => [
         'Yes' => 'Yes',
         'No' => 'No',
+      ],
+      'fillable' => true,
+      'modifiers' => [
+        'default' => true,
       ],
     ],
     'requires_approval' => [
@@ -34,12 +41,20 @@ return [
         'Yes' => 'Yes',
         'No' => 'No',
       ],
+      'fillable' => true,
+      'modifiers' => [
+        'default' => true,
+      ],
     ],
     'max_days_per_request' => [
       'display' => 'inline',
       'field_type' => 'number',
       'label' => 'Max Days Per Request',
       'validation' => 'nullable|integer|min:1',
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
     ],
     'is_active' => [
       'display' => 'inline',
@@ -50,12 +65,20 @@ return [
         'Active' => 'Active',
         'Inactive' => 'Inactive',
       ],
+      'fillable' => true,
+      'modifiers' => [
+        'default' => true,
+      ],
     ],
     'description' => [
       'display' => 'inline',
       'field_type' => 'textarea',
       'label' => 'Description',
       'maxSizeMB' => 1,
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
     ],
     'leaveBalances' => [
       'field_type' => 'checkbox',
