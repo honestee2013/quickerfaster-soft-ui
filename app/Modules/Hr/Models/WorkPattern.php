@@ -104,12 +104,12 @@ class WorkPattern extends Model
 
     public function departments()
     {
-        return $this->belongsToMany(\App\Modules\Hr\Models\Department::class, 'model_generator_id', 'department_id', 'id', 'department_id');
+        return $this->belongsToMany(\App\Modules\Hr\Models\Department::class, 'department_work_pattern', 'work_pattern_id', 'department_id', 'id', 'id');
     }
 
     public function locations()
     {
-        return $this->belongsToMany(\App\Modules\Hr\Models\Location::class, 'model_generator_id', 'location_id', 'id', 'location_id');
+        return $this->belongsToMany(\App\Modules\Hr\Models\Location::class, 'location_work_pattern', 'work_pattern_id', 'location_id', 'id', 'id');
     }
 
     /**

@@ -104,7 +104,7 @@ class LeaveApprover extends Model
 
     public function leaveTypes()
     {
-        return $this->belongsToMany(\App\Modules\Hr\Models\LeaveType::class, 'model_generator_id', 'leave_type_id', 'id', 'leave_type_id');
+        return $this->belongsToMany(\App\Modules\Hr\Models\LeaveType::class, 'leave_approver_leave_type', 'leave_approver_id', 'leave_type_id', 'leave_approver_id', 'leave_type_id');
     }
 
     /**

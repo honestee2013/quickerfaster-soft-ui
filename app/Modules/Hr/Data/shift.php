@@ -289,7 +289,7 @@ return [
         'display_field' => 'name',
         'hintField' => '',
         'dynamic_property' => 'departments',
-        'foreign_key' => 'shift_id',
+        'foreign_key' => 'id',
         'local_key' => 'id',
         'inlineAdd' => false,
       ],
@@ -718,9 +718,11 @@ return [
     'departments' => [
       'type' => 'belongsToMany',
       'model' => 'App\Modules\Hr\Models\Department',
-      'foreignKey' => 'shift_id',
-      'relatedKey' => 'department_id',
-      'table' => 'shift_department',
+      'pivotTable' => 'department_shift',
+      'foreignPivotKey' => 'shift_id',
+      'relatedPivotKey' => 'department_id',
+      'foreignKey' => 'id',
+      'relatedKey' => 'id',
       'displayField' => 'name',
     ],
     'templateSource' => [

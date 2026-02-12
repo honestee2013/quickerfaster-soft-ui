@@ -8677,12 +8677,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/honestee2013/laravel-code-gen.git",
-                "reference": "61627e721cb39e7c2d4b2e4e69b655884befebbb"
+                "reference": "ac83d778c4a0d3a5f7ade3cb5d4f1ef8f55a11ce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/honestee2013/laravel-code-gen/zipball/61627e721cb39e7c2d4b2e4e69b655884befebbb",
-                "reference": "61627e721cb39e7c2d4b2e4e69b655884befebbb",
+                "url": "https://api.github.com/repos/honestee2013/laravel-code-gen/zipball/ac83d778c4a0d3a5f7ade3cb5d4f1ef8f55a11ce",
+                "reference": "ac83d778c4a0d3a5f7ade3cb5d4f1ef8f55a11ce",
                 "shasum": ""
             },
             "default-branch": true,
@@ -8707,7 +8707,7 @@
                 "source": "https://github.com/honestee2013/laravel-code-gen/tree/main",
                 "issues": "https://github.com/honestee2013/laravel-code-gen/issues"
             },
-            "time": "2026-02-12T03:13:50+00:00"
+            "time": "2026-02-12T06:10:56+00:00"
         },
         {
             "name": "sebastian/cli-parser",

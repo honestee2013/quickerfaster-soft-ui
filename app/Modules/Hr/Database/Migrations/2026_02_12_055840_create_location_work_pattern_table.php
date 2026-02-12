@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('holidaycalendar_department', function (Blueprint $table) {
+        Schema::create('location_work_pattern', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignId('holiday_calendar_id')->nullable()->constrained('holiday_calendars')->onDelete('cascade');
-            $table->foreignId('department_id')->nullable()->constrained('departments')->onDelete('cascade');
+            $table->foreignId('work_pattern_id')->nullable()->constrained('work_patterns')->onDelete('cascade');
+            $table->foreignId('location_id')->nullable()->constrained('locations')->onDelete('cascade');
 
             $table->timestamps();
         });
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('holidaycalendar_department');
+        Schema::dropIfExists('location_work_pattern');
     }
 };

@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('holidaycalendar_location', function (Blueprint $table) {
+        Schema::create('holiday_calendar_location', function (Blueprint $table) {
             $table->id();
 
             $table->foreignId('holiday_calendar_id')->nullable()->constrained('holiday_calendars')->onDelete('cascade');
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('holidaycalendar_location');
+        Schema::dropIfExists('holiday_calendar_location');
     }
 };

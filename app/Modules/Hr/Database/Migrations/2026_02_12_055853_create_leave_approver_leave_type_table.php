@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('shift_department', function (Blueprint $table) {
+        Schema::create('leave_approver_leave_type', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignId('shift_id')->nullable()->constrained('shifts')->onDelete('cascade');
-            $table->foreignId('department_id')->nullable()->constrained('departments')->onDelete('cascade');
+            $table->foreignId('leave_approver_id')->nullable()->constrained('leave_approvers')->onDelete('cascade');
+            $table->foreignId('leave_type_id')->nullable()->constrained('leave_types')->onDelete('cascade');
 
             $table->timestamps();
         });
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('shift_department');
+        Schema::dropIfExists('leave_approver_leave_type');
     }
 };

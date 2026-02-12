@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('workpattern_location', function (Blueprint $table) {
+        Schema::create('department_shift', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignId('work_pattern_id')->nullable()->constrained('work_patterns')->onDelete('cascade');
-            $table->foreignId('location_id')->nullable()->constrained('locations')->onDelete('cascade');
+            $table->foreignId('shift_id')->nullable()->constrained('shifts')->onDelete('cascade');
+            $table->foreignId('department_id')->nullable()->constrained('departments')->onDelete('cascade');
 
             $table->timestamps();
         });
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('workpattern_location');
+        Schema::dropIfExists('department_shift');
     }
 };

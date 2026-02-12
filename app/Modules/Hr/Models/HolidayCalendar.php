@@ -100,12 +100,12 @@ class HolidayCalendar extends Model
 
     public function departments()
     {
-        return $this->belongsToMany(\App\Modules\Hr\Models\Department::class, 'model_generator_id', 'department_id', 'id', 'department_id');
+        return $this->belongsToMany(\App\Modules\Hr\Models\Department::class, 'department_holiday_calendar', 'holiday_calendar_id', 'department_id', 'id', 'id');
     }
 
     public function locations()
     {
-        return $this->belongsToMany(\App\Modules\Hr\Models\Location::class, 'model_generator_id', 'location_id', 'id', 'location_id');
+        return $this->belongsToMany(\App\Modules\Hr\Models\Location::class, 'holiday_calendar_location', 'holiday_calendar_id', 'location_id', 'id', 'id');
     }
 
     /**

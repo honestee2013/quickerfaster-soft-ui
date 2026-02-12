@@ -116,7 +116,7 @@ class Shift extends Model
 
     public function departments()
     {
-        return $this->belongsToMany(\App\Modules\Hr\Models\Department::class, 'model_generator_id', 'department_id', 'id', 'department_id');
+        return $this->belongsToMany(\App\Modules\Hr\Models\Department::class, 'department_shift', 'shift_id', 'department_id', 'id', 'id');
     }
 
     public function templateSource()
