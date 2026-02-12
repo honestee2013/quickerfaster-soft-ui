@@ -154,11 +154,10 @@ return [
     'groupTitle' => 'Time Tracking',
 ],
     [
-    'title' => 'Adjust Attendance',
-    'icon' => 'fas fa-user-edit',
+    'title' => 'Attendance Adjustments',
+    'icon' => 'fas fa-edit',
     'url' => 'hr/attendance-adjustments',
     'permission' => 'view_attendance_adjustment',
-    'groupTitle' => 'Time Tracking',
 ],
     [
     'title' => 'Shift Schedules',
@@ -172,14 +171,12 @@ return [
     'icon' => 'fas fa-clock',
     'url' => 'hr/clock-events',
     'permission' => 'view_clock_event',
-    'groupTitle' => 'Time Tracking',
 ],
     [
-    'title' => 'Work Sessions',
-    'icon' => 'fas fa-history',
+    'title' => 'Attendance Sessions',
+    'icon' => 'fas fa-hourglass-half',
     'url' => 'hr/attendance-sessions',
     'permission' => 'view_attendance_session',
-    'groupTitle' => 'Time Tracking',
 ],
     [
     'title' => 'Holiday Calendars',

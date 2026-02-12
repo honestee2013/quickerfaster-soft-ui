@@ -327,21 +327,6 @@ return [
         'icon' => 'fas fa-plus-circle',
         'primary' => true,
       ],
-      '1' => [
-        'label' => 'Copy Pattern',
-        'type' => 'modal',
-        'icon' => 'fas fa-copy',
-        'route' => 'work-patterns.copy',
-        'modalSize' => 'md',
-      ],
-      '2' => [
-        'label' => 'Generate Schedules',
-        'type' => 'modal',
-        'icon' => 'fas fa-calendar-plus',
-        'route' => 'work-patterns.generate-schedules',
-        'modalSize' => 'lg',
-        'confirm' => 'Generate shift schedules for all assigned employees?',
-      ],
     ],
     'files' => [
       'export' => [
@@ -489,58 +474,7 @@ return [
       ],
     ],
   ],
-  'moreActions' => [
-    '0' => [
-      'title' => 'Set as Default',
-      'icon' => 'fas fa-star',
-      'updateModelField' => true,
-      'fieldName' => 'is_default',
-      'fieldValue' => true,
-      'actionName' => 'set_pattern_default',
-      'confirm' => 'Set this as the default work pattern?',
-      'condition' => [
-        '0' => [
-          'is_default' => false,
-        ],
-      ],
-    ],
-    '1' => [
-      'title' => 'View Assigned Employees',
-      'icon' => 'fas fa-users',
-      'route' => 'employees.index',
-      'params' => [
-        'work_pattern_id' => '{id}',
-      ],
-    ],
-    '2' => [
-      'title' => 'Preview Schedule',
-      'icon' => 'fas fa-eye',
-      'dispatchEvent' => true,
-      'eventName' => 'openPatternPreviewEvent',
-      'params' => [
-        'pattern_id' => '{id}',
-      ],
-    ],
-    '3' => [
-      'title' => 'Generate Shift Schedules',
-      'icon' => 'fas fa-calendar-plus',
-      'route' => 'work-patterns.generate',
-      'params' => [
-        'pattern_id' => '{id}',
-        'start_date' => 'next_monday',
-        'end_date' => 'next_friday_4_weeks',
-      ],
-      'confirm' => 'Generate shift schedules for next 4 weeks?',
-    ],
-    '4' => [
-      'title' => 'Copy to New Pattern',
-      'icon' => 'fas fa-copy',
-      'route' => 'work-patterns.copy-pattern',
-      'params' => [
-        'source_id' => '{id}',
-      ],
-    ],
-  ],
+  'moreActions' => [],
   'switchViews' => [
     'default' => 'list',
     'card' => [

@@ -401,20 +401,6 @@ return [
         '1' => 'csv',
         '2' => 'pdf',
       ],
-      'toggle_active' => [
-        'label' => 'Toggle Active Status',
-        'icon' => 'fas fa-toggle-on',
-        'updateModelField' => 'is_active',
-        'fieldValue' => 'toggle',
-        'actionName' => 'bulk_toggle_holiday_active',
-      ],
-      'delete' => true,
-      'duplicate' => [
-        'label' => 'Duplicate Selected',
-        'icon' => 'fas fa-copy',
-        'route' => 'holidays.bulk-duplicate',
-        'confirm' => 'Create copies of selected holidays?',
-      ],
     ],
     'perPage' => [
       '0' => 10,
@@ -580,80 +566,7 @@ return [
       ],
     ],
   ],
-  'moreActions' => [
-    '0' => [
-      'title' => 'Duplicate Holiday',
-      'icon' => 'fas fa-copy',
-      'route' => 'holidays.duplicate',
-      'params' => [
-        'holiday_id' => '{id}',
-      ],
-    ],
-    '1' => [
-      'title' => 'Toggle Active Status',
-      'icon' => 'fas fa-toggle-on',
-      'updateModelField' => true,
-      'fieldName' => 'is_active',
-      'fieldValue' => 'toggle',
-      'actionName' => 'toggle_holiday_active',
-    ],
-    '2' => [
-      'title' => 'View Affected Employees',
-      'icon' => 'fas fa-users',
-      'route' => 'holidays.impact-report',
-      'params' => [
-        'holiday_id' => '{id}',
-      ],
-    ],
-    '3' => [
-      'title' => 'Generate for Future Years',
-      'icon' => 'fas fa-calendar-plus',
-      'route' => 'holidays.generate-future',
-      'params' => [
-        'holiday_id' => '{id}',
-      ],
-      'modal' => true,
-      'condition' => [
-        '0' => [
-          'is_recurring' => true,
-        ],
-      ],
-    ],
-    '4' => [
-      'title' => 'Export to Calendar (ICS)',
-      'icon' => 'fas fa-file-export',
-      'route' => 'holidays.export.ics',
-      'params' => [
-        'holiday_id' => '{id}',
-      ],
-    ],
-    '5' => [
-      'title' => 'Create Exception',
-      'icon' => 'fas fa-exclamation-circle',
-      'route' => 'holidays.create-exception',
-      'params' => [
-        'holiday_id' => '{id}',
-      ],
-      'modal' => true,
-    ],
-    '6' => [
-      'title' => 'View Attendance Impact',
-      'icon' => 'fas fa-chart-bar',
-      'route' => 'holidays.attendance-impact',
-      'params' => [
-        'holiday_id' => '{id}',
-      ],
-    ],
-    '7' => [
-      'title' => 'Send Holiday Announcement',
-      'icon' => 'fas fa-bullhorn',
-      'route' => 'holidays.announce',
-      'params' => [
-        'holiday_id' => '{id}',
-      ],
-      'modal' => true,
-    ],
-  ],
+  'moreActions' => [],
   'switchViews' => [
     'default' => 'list',
     'card' => [

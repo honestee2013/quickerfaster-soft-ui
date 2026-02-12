@@ -236,20 +236,6 @@ return [
         'icon' => 'fas fa-plus-circle',
         'primary' => true,
       ],
-      '1' => [
-        'label' => 'Copy Calendar',
-        'type' => 'button',
-        'icon' => 'fas fa-copy',
-        'route' => 'holiday-calendars.copy',
-        'modal' => true,
-      ],
-      '2' => [
-        'label' => 'Import Holidays',
-        'type' => 'modal',
-        'icon' => 'fas fa-file-import',
-        'url' => '/hr/holidays/import',
-        'modalSize' => 'lg',
-      ],
     ],
     'files' => [
       'export' => [
@@ -413,73 +399,7 @@ return [
       ],
     ],
   ],
-  'moreActions' => [
-    '0' => [
-      'title' => 'View Holidays',
-      'icon' => 'fas fa-gift',
-      'route' => 'holidays.index',
-      'params' => [
-        'calendar_id' => '{id}',
-      ],
-    ],
-    '1' => [
-      'title' => 'Add Holiday',
-      'icon' => 'fas fa-plus',
-      'route' => 'holidays.create',
-      'params' => [
-        'calendar_id' => '{id}',
-      ],
-    ],
-    '2' => [
-      'title' => 'Set as Default',
-      'icon' => 'fas fa-star',
-      'updateModelField' => true,
-      'fieldName' => 'is_default',
-      'fieldValue' => true,
-      'actionName' => 'set_default_calendar',
-      'confirm' => 'Set this as the default holiday calendar?',
-      'condition' => [
-        '0' => [
-          'is_default' => false,
-        ],
-      ],
-    ],
-    '3' => [
-      'title' => 'Copy to New Year',
-      'icon' => 'fas fa-calendar-plus',
-      'route' => 'holiday-calendars.copy-year',
-      'params' => [
-        'source_id' => '{id}',
-      ],
-      'modal' => true,
-    ],
-    '4' => [
-      'title' => 'Export Calendar (ICS)',
-      'icon' => 'fas fa-file-export',
-      'route' => 'holiday-calendars.export.ics',
-      'params' => [
-        'calendar_id' => '{id}',
-      ],
-    ],
-    '5' => [
-      'title' => 'Preview Calendar',
-      'icon' => 'fas fa-eye',
-      'dispatchStandardEvent' => true,
-      'eventName' => 'openHolidayCalendarPreviewEvent',
-      'params' => [
-        'calendar_id' => '{id}',
-      ],
-    ],
-    '6' => [
-      'title' => 'Assign to Employees',
-      'icon' => 'fas fa-user-plus',
-      'route' => 'holiday-calendars.assign',
-      'params' => [
-        'calendar_id' => '{id}',
-      ],
-      'modal' => true,
-    ],
-  ],
+  'moreActions' => [],
   'switchViews' => [
     'default' => 'list',
     'card' => [
