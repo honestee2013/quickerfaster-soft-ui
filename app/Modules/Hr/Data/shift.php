@@ -357,25 +357,6 @@ return [
         'icon' => 'fas fa-plus-circle',
         'primary' => true,
       ],
-      '1' => [
-        'label' => 'From Template',
-        'type' => 'dropdown',
-        'icon' => 'fas fa-copy',
-        'items' => [
-          '0' => [
-            'label' => 'Copy Existing Shift',
-            'icon' => 'fas fa-clone',
-            'route' => 'shifts.copy-template',
-            'modal' => true,
-          ],
-          '1' => [
-            'label' => 'Use System Template',
-            'icon' => 'fas fa-layer-group',
-            'route' => 'shifts.system-templates',
-            'modal' => true,
-          ],
-        ],
-      ],
     ],
     'files' => [
       'export' => [
@@ -390,24 +371,6 @@ return [
         '0' => 'xls',
         '1' => 'csv',
         '2' => 'pdf',
-      ],
-      'updateModelFields' => [
-        'activate' => [
-          'label' => 'Activate Selected',
-          'fieldName' => 'is_active',
-          'fieldValue' => true,
-        ],
-        'deactivate' => [
-          'label' => 'Deactivate Selected',
-          'fieldName' => 'is_active',
-          'fieldValue' => false,
-        ],
-      ],
-      'duplicate' => [
-        'label' => 'Duplicate Selected',
-        'icon' => 'fas fa-copy',
-        'route' => 'shifts.bulk-duplicate',
-        'confirm' => 'Create copies of selected shifts?',
       ],
     ],
     'perPage' => [
@@ -522,73 +485,7 @@ return [
       ],
     ],
   ],
-  'moreActions' => [
-    '0' => [
-      'title' => 'Copy Shift',
-      'icon' => 'fas fa-copy',
-      'route' => 'shifts.copy',
-      'params' => [
-        'shift_id' => '{id}',
-      ],
-      'confirm' => 'Create a copy of this shift template?',
-    ],
-    '1' => [
-      'title' => 'Toggle Active Status',
-      'icon' => 'fas fa-toggle-on',
-      'updateModelField' => true,
-      'fieldName' => 'is_active',
-      'fieldValue' => 'toggle',
-      'actionName' => 'toggle_shift_active',
-      'confirm' => 'Change the active status of this shift?',
-    ],
-    '2' => [
-      'title' => 'Set as Default',
-      'icon' => 'fas fa-star',
-      'updateModelField' => true,
-      'fieldName' => 'is_default',
-      'fieldValue' => true,
-      'actionName' => 'set_shift_default',
-      'confirm' => 'Set this as the default shift for new employees?',
-      'condition' => [
-        '0' => [
-          'is_default' => false,
-        ],
-      ],
-    ],
-    '3' => [
-      'title' => 'View Schedule Usage',
-      'icon' => 'fas fa-calendar-alt',
-      'route' => 'shift-schedules.index',
-      'params' => [
-        'shift_id' => '{id}',
-      ],
-    ],
-    '4' => [
-      'title' => 'View Attendance History',
-      'icon' => 'fas fa-history',
-      'route' => 'attendances.index',
-      'params' => [
-        'shift_id' => '{id}',
-        'date_from' => 'last_month',
-      ],
-    ],
-    '5' => [
-      'title' => 'Export Shift Details',
-      'icon' => 'fas fa-file-export',
-      'route' => 'shifts.export.details',
-      'params' => [
-        'shift_id' => '{id}',
-      ],
-    ],
-    '6' => [
-      'title' => 'Create Schedule from Shift',
-      'icon' => 'fas fa-calendar-plus',
-      'route' => 'shift-schedules.create-from-shift',
-      'params' => [
-        'shift_id' => '{id}',
-      ],
-    ],
-  ],
+  'moreActions' => [],
   'switchViews' => [
     'default' => 'list',
     'card' => [
