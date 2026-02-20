@@ -92,6 +92,56 @@ return [
         'nullable' => true,
       ],
     ],
+    'default_attendance_policy_id' => [
+      'display' => 'inline',
+      'field_type' => 'select',
+      'label' => 'Default Attendance Policy',
+      'validation' => 'nullable|exists:attendance_policies,id',
+      'relationship' => [
+        'model' => 'App\Modules\Hr\Models\AttendancePolicy',
+        'type' => 'belongsTo',
+        'display_field' => 'name',
+        'dynamic_property' => 'defaultAttendancePolicy',
+        'foreign_key' => 'default_attendance_policy_id',
+        'inlineAdd' => false,
+      ],
+      'options' => [
+        'model' => 'App\Modules\Hr\Models\AttendancePolicy',
+        'column' => 'name',
+        'hintField' => '',
+      ],
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
+      'description' => 'Default policy for employees at this location',
+      'icon' => 'fas fa-gavel',
+    ],
+    'default_work_pattern_id' => [
+      'display' => 'inline',
+      'field_type' => 'select',
+      'label' => 'Default Work Pattern',
+      'validation' => 'nullable|exists:work_patterns,id',
+      'relationship' => [
+        'model' => 'App\Modules\Hr\Models\WorkPattern',
+        'type' => 'belongsTo',
+        'display_field' => 'name',
+        'dynamic_property' => 'defaultWorkPattern',
+        'foreign_key' => 'default_work_pattern_id',
+        'inlineAdd' => false,
+      ],
+      'options' => [
+        'model' => 'App\Modules\Hr\Models\WorkPattern',
+        'column' => 'name',
+        'hintField' => '',
+      ],
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
+      'description' => 'Default pattern for employees at this location',
+      'icon' => 'fas fa-calendar-alt',
+    ],
     'childDepartments' => [
       'field_type' => 'checkbox',
       'relationship' => [
@@ -129,7 +179,7 @@ return [
   'dispatchEvents' => false,
   'controls' => 'all',
   'fieldGroups' => [
-    '0' => [
+    'department_information' => [
       'title' => 'Department Information',
       'groupType' => 'hr',
       'fields' => [
@@ -139,12 +189,22 @@ return [
         '3' => 'cost_center',
       ],
     ],
-    '1' => [
+    'department_structure' => [
       'title' => 'Department Structure',
       'groupType' => 'hr',
       'fields' => [
-        '0' => 'parent_department_id',
-        '1' => 'is_active',
+        '0' => 'company_id',
+        '1' => 'parent_department_id',
+        '2' => 'childDepartments',
+        '3' => 'is_active',
+      ],
+    ],
+    'attendance_policies' => [
+      'title' => 'Attendance Policies',
+      'groupType' => 'hr',
+      'fields' => [
+        '0' => 'default_attendance_policy_id',
+        '1' => 'default_work_pattern_id',
       ],
     ],
   ],
@@ -168,6 +228,20 @@ return [
       'model' => 'App\Modules\Hr\Models\Company',
       'foreignKey' => 'company_id',
       'displayField' => 'name',
+    ],
+    'defaultAttendancePolicy' => [
+      'type' => 'belongsTo',
+      'model' => 'App\Modules\Hr\Models\AttendancePolicy',
+      'foreignKey' => 'default_attendance_policy_id',
+      'displayField' => 'name',
+      'descriptionField' => 'description',
+    ],
+    'defaultWorkPattern' => [
+      'type' => 'belongsTo',
+      'model' => 'App\Modules\Hr\Models\WorkPattern',
+      'foreignKey' => 'default_work_pattern_id',
+      'displayField' => 'name',
+      'descriptionField' => 'description',
     ],
   ],
   'report' => [],

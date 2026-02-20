@@ -2,6 +2,37 @@
 
 return [
     [
+    'itemType' => 'item-separator',
+    'title' => '<h6 class="ps-3 mt-4 mb-2 text-uppercase text-xs font-weight-bolder opacity-6 group-title">Policies</h6>',
+    'url' => null,
+],
+    [
+    'title' => 'Attendance Policies',
+    'icon' => 'fas fa-gavel',
+    'url' => 'hr/attendance-policies',
+    'permission' => 'view_attendance_policy',
+    'groupTitle' => 'Policies',
+],
+    [
+    'itemType' => 'item-separator',
+    'title' => '<h6 class="ps-3 mt-4 mb-2 text-uppercase text-xs font-weight-bolder opacity-6 group-title">Scheduling</h6>',
+    'url' => null,
+],
+    [
+    'title' => 'Shifts',
+    'icon' => 'fas fa-calendar-day',
+    'url' => 'hr/shifts',
+    'permission' => 'view_shift',
+    'groupTitle' => 'Scheduling',
+],
+    [
+    'title' => 'Work Patterns',
+    'icon' => 'fas fa-calendar-week',
+    'url' => 'hr/work-patterns',
+    'permission' => 'view_work_pattern',
+    'groupTitle' => 'Scheduling',
+],
+    [
     'title' => 'Locations',
     'icon' => 'fas fa-map-marker-alt',
     'url' => 'hr/locations',
@@ -37,37 +68,6 @@ return [
     'url' => 'hr/job-titles',
     'permission' => 'view_job_title',
     'groupTitle' => 'Organization',
-],
-    [
-    'itemType' => 'item-separator',
-    'title' => '<h6 class="ps-3 mt-4 mb-2 text-uppercase text-xs font-weight-bolder opacity-6 group-title">Scheduling</h6>',
-    'url' => null,
-],
-    [
-    'title' => 'Shifts',
-    'icon' => 'fas fa-calendar-day',
-    'url' => 'hr/shifts',
-    'permission' => 'view_shift',
-    'groupTitle' => 'Scheduling',
-],
-    [
-    'itemType' => 'item-separator',
-    'title' => '<h6 class="ps-3 mt-4 mb-2 text-uppercase text-xs font-weight-bolder opacity-6 group-title">Policies</h6>',
-    'url' => null,
-],
-    [
-    'title' => 'Attendance Policies',
-    'icon' => 'fas fa-gavel',
-    'url' => 'hr/attendance-policies',
-    'permission' => 'view_attendance_policy',
-    'groupTitle' => 'Policies',
-],
-    [
-    'title' => 'Work Patterns',
-    'icon' => 'fas fa-calendar-week',
-    'url' => 'hr/work-patterns',
-    'permission' => 'view_work_pattern',
-    'groupTitle' => 'Scheduling',
 ],
     [
     'title' => 'Employees',

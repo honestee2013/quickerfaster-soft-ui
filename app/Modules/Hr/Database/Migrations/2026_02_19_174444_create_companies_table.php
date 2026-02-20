@@ -26,6 +26,8 @@ return new class extends Migration
             $table->string('timezone')->nullable();
             $table->string('currency_code')->nullable();
             $table->string('level')->default('division')->nullable();
+            $table->foreignId('default_attendance_policy_id')->nullable()->constrained('attendance_policies', 'id')->onDelete('set null');
+            $table->foreignId('default_work_pattern_id')->nullable()->constrained('work_patterns', 'id')->onDelete('set null');
             
             			$table->unique('subdomain');
             $table->timestamps();

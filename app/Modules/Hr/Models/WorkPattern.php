@@ -7,8 +7,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
 use App\Modules\Hr\Models\Shift;
-use App\Modules\Hr\Models\Department;
-use App\Modules\Hr\Models\Location;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -29,7 +27,7 @@ class WorkPattern extends Model
     
 
     protected $fillable = [
-        'name', 'code', 'description', 'shift_id', 'applicable_days', 'override_start_time', 'override_end_time', 'pattern_type', 'rotation_weeks', 'effective_date', 'end_date', 'is_active', 'is_default', 'applicable_department_ids', 'applicable_location_ids'
+        'name', 'code', 'description', 'shift_id', 'applicable_days', 'override_start_time', 'override_end_time', 'pattern_type', 'rotation_weeks', 'effective_date', 'end_date', 'is_active', 'is_default'
     ];
 
     protected $guarded = [
@@ -100,16 +98,6 @@ class WorkPattern extends Model
     public function shift()
     {
         return $this->belongsTo(\App\Modules\Hr\Models\Shift::class, 'shift_id', 'id');
-    }
-
-    public function departments()
-    {
-        return $this->belongsToMany(\App\Modules\Hr\Models\Department::class, 'department_work_pattern', 'work_pattern_id', 'department_id', 'id', 'id');
-    }
-
-    public function locations()
-    {
-        return $this->belongsToMany(\App\Modules\Hr\Models\Location::class, 'location_work_pattern', 'work_pattern_id', 'location_id', 'id', 'id');
     }
 
     /**

@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
 use App\Modules\Hr\Models\Department;
 use App\Modules\Hr\Models\Company;
+use App\Modules\Hr\Models\AttendancePolicy;
+use App\Modules\Hr\Models\WorkPattern;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -28,7 +30,7 @@ class Department extends Model
     
 
     protected $fillable = [
-        'name', 'code', 'description', 'company_id', 'parent_department_id', 'cost_center', 'is_active'
+        'name', 'code', 'description', 'company_id', 'parent_department_id', 'cost_center', 'is_active', 'default_attendance_policy_id', 'default_work_pattern_id'
     ];
 
     protected $guarded = [
@@ -102,6 +104,16 @@ class Department extends Model
     public function company()
     {
         return $this->belongsTo(\App\Modules\Hr\Models\Company::class, 'company_id', 'id');
+    }
+
+    public function defaultAttendancePolicy()
+    {
+        return $this->belongsTo(\App\Modules\Hr\Models\AttendancePolicy::class, 'default_attendance_policy_id', 'id');
+    }
+
+    public function defaultWorkPattern()
+    {
+        return $this->belongsTo(\App\Modules\Hr\Models\WorkPattern::class, 'default_work_pattern_id', 'id');
     }
 
     /**

@@ -23,8 +23,6 @@ return new class extends Migration
             $table->date('end_date')->nullable();
             $table->boolean('is_active')->default(true);
             $table->boolean('is_default')->default(false);
-            $table->foreignId('applicable_department_ids')->nullable()->constrained('departments', 'id')->onDelete('cascade');
-            $table->foreignId('applicable_location_ids')->nullable()->constrained('locations', 'id')->onDelete('cascade');
             $table->integer('assigned_employee_count')->default(0);
             $table->date('last_used_date')->nullable();
             $table->integer('created_from_template_id')->nullable();

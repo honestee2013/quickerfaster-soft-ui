@@ -26,6 +26,7 @@ return array (
         0 => 'job_information',
         1 => 'employment_details',
         2 => 'compensation',
+        3 => 'attendance_policies',
       ),
       'requiresLink' => true,
     ),

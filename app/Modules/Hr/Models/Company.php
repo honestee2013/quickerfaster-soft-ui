@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
 use App\Modules\Hr\Models\Location;
 use App\Modules\Hr\Models\Company;
+use App\Modules\Hr\Models\AttendancePolicy;
+use App\Modules\Hr\Models\WorkPattern;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -28,7 +30,7 @@ class Company extends Model
     
 
     protected $fillable = [
-        'name', 'parent_company_id', 'location_id', 'subdomain', 'status', 'billing_email', 'billing_address_line_1', 'billing_address_line_2', 'billing_city', 'billing_state_province', 'billing_postal_code', 'billing_country_code', 'timezone', 'currency_code', 'level'
+        'name', 'parent_company_id', 'location_id', 'subdomain', 'status', 'billing_email', 'billing_address_line_1', 'billing_address_line_2', 'billing_city', 'billing_state_province', 'billing_postal_code', 'billing_country_code', 'timezone', 'currency_code', 'level', 'default_attendance_policy_id', 'default_work_pattern_id'
     ];
 
     protected $guarded = [
@@ -97,6 +99,16 @@ class Company extends Model
     public function parentCompany()
     {
         return $this->belongsTo(\App\Modules\Hr\Models\Company::class, 'parent_company_id', 'id');
+    }
+
+    public function defaultAttendancePolicy()
+    {
+        return $this->belongsTo(\App\Modules\Hr\Models\AttendancePolicy::class, 'default_attendance_policy_id', 'id');
+    }
+
+    public function defaultWorkPattern()
+    {
+        return $this->belongsTo(\App\Modules\Hr\Models\WorkPattern::class, 'default_work_pattern_id', 'id');
     }
 
     /**

@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
 use App\Modules\Hr\Models\ShiftSchedule;
+use App\Modules\Hr\Models\AttendancePolicy;
 use App\Modules\Hr\Models\Attendance;
-use App\Modules\Hr\Models\Department;
 use App\Modules\Hr\Models\Shift;
 
 use Illuminate\Database\Eloquent\Model;
@@ -30,7 +30,7 @@ class Shift extends Model
     
 
     protected $fillable = [
-        'name', 'code', 'start_time', 'end_time', 'duration_hours', 'break_duration', 'is_overnight', 'description', 'is_active', 'is_default', 'overtime_starts_after', 'grace_period_minutes', 'max_shift_hours', 'shift_category', 'pay_multiplier', 'minimum_staffing', 'is_restricted', 'created_from_template_id', 'last_used_date', 'usage_count'
+        'name', 'code', 'start_time', 'end_time', 'duration_hours', 'default_attendance_policy_id', 'is_overnight', 'description', 'is_active', 'is_default', 'shift_category', 'created_from_template_id', 'last_used_date', 'usage_count'
     ];
 
     protected $guarded = [
@@ -39,16 +39,9 @@ class Shift extends Model
 
     protected $casts = [
         'duration_hours' => 'decimal:2',
-        'break_duration' => 'decimal:2',
         'is_overnight' => 'boolean',
         'is_active' => 'boolean',
         'is_default' => 'boolean',
-        'overtime_starts_after' => 'decimal:2',
-        'grace_period_minutes' => 'integer',
-        'max_shift_hours' => 'decimal:2',
-        'pay_multiplier' => 'decimal:2',
-        'minimum_staffing' => 'integer',
-        'is_restricted' => 'boolean',
         'created_from_template_id' => 'integer',
         'last_used_date' => 'date',
         'usage_count' => 'integer'
@@ -109,14 +102,14 @@ class Shift extends Model
         return $this->hasMany(\App\Modules\Hr\Models\ShiftSchedule::class, 'shift_id', 'id');
     }
 
+    public function defaultAttendancePolicy()
+    {
+        return $this->belongsTo(\App\Modules\Hr\Models\AttendancePolicy::class, 'default_attendance_policy_id', 'id');
+    }
+
     public function attendanceRecords()
     {
         return $this->hasMany(\App\Modules\Hr\Models\Attendance::class, 'shift_id', 'id');
-    }
-
-    public function departments()
-    {
-        return $this->belongsToMany(\App\Modules\Hr\Models\Department::class, 'department_shift', 'shift_id', 'department_id', 'id', 'id');
     }
 
     public function templateSource()

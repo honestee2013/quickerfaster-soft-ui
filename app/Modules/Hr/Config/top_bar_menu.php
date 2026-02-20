@@ -2,16 +2,16 @@
 
 return [
     [
-    'title' => 'Departments',
-    'icon' => 'fas fa-cog',
-    'url' => 'hr/departments',
-    'permission' => 'view_department',
-],
-    [
     'title' => 'Policies',
     'icon' => 'fas fa-gavel',
     'url' => 'hr/attendance-policies',
     'permission' => 'view_attendance_policy',
+],
+    [
+    'title' => 'Departments',
+    'icon' => 'fas fa-cog',
+    'url' => 'hr/departments',
+    'permission' => 'view_department',
 ],
     [
     'title' => 'Employees',

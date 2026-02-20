@@ -9,21 +9,21 @@
 {{-- Generated Links --}}
 {{-- Generated Links --}}
 <li class="nav-item">
-    <a href="/hr/departments"
-        class="nav-link @if(request()->is('hr/departments') || request()->is('hr/departments/*')) fw-bold text-primary @endif">
-        @if(request()->is('hr/departments') || request()->is('hr/departments/*')) 
-            <i class="fas fas fa-cog" aria-hidden="true"></i> 
-        @endif
-        <span>Settings</span>
-    </a>
-</li>
-<li class="nav-item">
     <a href="/hr/attendance-policies"
         class="nav-link @if(request()->is('hr/attendance-policies') || request()->is('hr/attendance-policies/*')) fw-bold text-primary @endif">
         @if(request()->is('hr/attendance-policies') || request()->is('hr/attendance-policies/*')) 
             <i class="fas fas fa-gavel" aria-hidden="true"></i> 
         @endif
         <span>Policies</span>
+    </a>
+</li>
+<li class="nav-item">
+    <a href="/hr/departments"
+        class="nav-link @if(request()->is('hr/departments') || request()->is('hr/departments/*')) fw-bold text-primary @endif">
+        @if(request()->is('hr/departments') || request()->is('hr/departments/*')) 
+            <i class="fas fas fa-cog" aria-hidden="true"></i> 
+        @endif
+        <span>Settings</span>
     </a>
 </li>
 <li class="nav-item">

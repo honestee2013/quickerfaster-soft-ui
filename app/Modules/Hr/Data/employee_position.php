@@ -125,6 +125,30 @@ return [
         'nullable' => true,
       ],
     ],
+    'shift_id' => [
+      'display' => 'inline',
+      'field_type' => 'select',
+      'label' => 'Shift',
+      'validation' => 'required|exists:shifts,id',
+      'relationship' => [
+        'model' => 'App\Modules\Hr\Models\Shift',
+        'type' => 'belongsTo',
+        'display_field' => 'name',
+        'dynamic_property' => 'shift',
+        'foreign_key' => 'shift_id',
+        'inlineAdd' => false,
+      ],
+      'options' => [
+        'model' => 'App\Modules\Hr\Models\Shift',
+        'column' => 'name',
+        'hintField' => '',
+      ],
+      'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
+      'icon' => 'fas fa-clock',
+    ],
     'employment_status' => [
       'display' => 'inline',
       'field_type' => 'select',
@@ -272,6 +296,9 @@ return [
         'employee_onboarding' => true,
       ],
       'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
       'description' => 'Rules for attendance, punctuality, and leave',
     ],
     'work_pattern_id' => [
@@ -296,6 +323,9 @@ return [
         'employee_onboarding' => true,
       ],
       'fillable' => true,
+      'modifiers' => [
+        'nullable' => true,
+      ],
       'description' => 'Regular work schedule and hours',
     ],
     'cost_center' => [
@@ -403,8 +433,6 @@ return [
         '2' => 'department_id',
         '3' => 'manager_id',
         '4' => 'reports_to',
-        '5' => 'attendance_policy_id',
-        '6' => 'work_pattern_id',
       ],
     ],
     'employment_details' => [
@@ -417,6 +445,15 @@ return [
         '3' => 'start_date',
         '4' => 'end_date',
         '5' => 'cost_center',
+      ],
+    ],
+    'attendance_policies' => [
+      'title' => 'Attendance Policies',
+      'groupType' => 'hr',
+      'fields' => [
+        '0' => 'shift_id',
+        '1' => 'attendance_policy_id',
+        '2' => 'work_pattern_id',
       ],
     ],
     'compensation' => [
@@ -486,6 +523,12 @@ return [
       'type' => 'belongsTo',
       'model' => 'App\Modules\Hr\Models\Location',
       'foreignKey' => 'location_id',
+      'displayField' => 'name',
+    ],
+    'shift' => [
+      'type' => 'belongsTo',
+      'model' => 'App\Modules\Hr\Models\Shift',
+      'foreignKey' => 'shift_id',
       'displayField' => 'name',
     ],
     'attendancePolicy' => [

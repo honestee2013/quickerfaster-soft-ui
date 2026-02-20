@@ -6,7 +6,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
-
+use App\Modules\Hr\Models\AttendancePolicy;
+use App\Modules\Hr\Models\WorkPattern;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -27,7 +28,7 @@ class Location extends Model
     
 
     protected $fillable = [
-        'name', 'code', 'address_line_1', 'address_line_2', 'city', 'state_province', 'postal_code', 'country', 'phone', 'email', 'website', 'timezone', 'is_active', 'is_remote', 'is_headquarters', 'capacity', 'opening_hours', 'opening_date', 'closing_date', 'latitude', 'longitude', 'geofence_radius'
+        'name', 'code', 'address_line_1', 'address_line_2', 'city', 'state_province', 'postal_code', 'country', 'phone', 'email', 'website', 'timezone', 'is_active', 'is_remote', 'is_headquarters', 'capacity', 'opening_hours', 'opening_date', 'closing_date', 'latitude', 'longitude', 'geofence_radius', 'default_attendance_policy_id', 'default_work_pattern_id'
     ];
 
     protected $guarded = [
@@ -99,7 +100,15 @@ class Location extends Model
         return parent::save($options);
     }
 
-    
+    public function defaultAttendancePolicy()
+    {
+        return $this->belongsTo(\App\Modules\Hr\Models\AttendancePolicy::class, 'default_attendance_policy_id', 'id');
+    }
+
+    public function defaultWorkPattern()
+    {
+        return $this->belongsTo(\App\Modules\Hr\Models\WorkPattern::class, 'default_work_pattern_id', 'id');
+    }
 
     /**
      * Create a new factory instance for the model.

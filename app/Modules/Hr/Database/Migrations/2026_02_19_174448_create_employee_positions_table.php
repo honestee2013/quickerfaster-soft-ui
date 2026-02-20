@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId('manager_id')->nullable()->constrained('employees', 'id')->onDelete('set null');
             $table->string('pay_type');
             $table->decimal('hourly_rate', 10, 2)->default(0)->nullable();
+            $table->foreignId('shift_id')->nullable()->constrained('shifts', 'id')->onDelete('restrict');
             $table->string('employment_status')->nullable()->default('Active');
             $table->foreignId('location_id')->nullable()->constrained('locations', 'id')->onDelete('restrict');
             $table->date('start_date');
@@ -23,8 +24,8 @@ return new class extends Migration
             $table->decimal('base_salary', 10, 2)->default(0)->nullable();
             $table->string('salary_currency')->default('USD')->nullable();
             $table->string('pay_frequency')->nullable();
-            $table->foreignId('attendance_policy_id')->constrained('attendance_policies', 'id')->onDelete('restrict');
-            $table->foreignId('work_pattern_id')->constrained('work_patterns', 'id')->onDelete('restrict');
+            $table->foreignId('attendance_policy_id')->nullable()->constrained('attendance_policies', 'id')->onDelete('restrict');
+            $table->foreignId('work_pattern_id')->nullable()->constrained('work_patterns', 'id')->onDelete('restrict');
             $table->string('cost_center')->nullable();
             $table->string('work_email')->nullable();
             $table->string('work_phone_extension')->nullable();

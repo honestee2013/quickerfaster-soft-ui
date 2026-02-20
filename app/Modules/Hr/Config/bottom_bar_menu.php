@@ -2,6 +2,27 @@
 
 return [
     [
+    'title' => 'Attendance Policies',
+    'icon' => 'fas fa-file-contract',
+    'url' => 'hr/attendance-policies',
+    'permission' => 'view_attendance_policy',
+    'key' => 'attendance_policy',
+],
+    [
+    'title' => 'Shifts',
+    'icon' => 'fas fa-business-time',
+    'url' => 'hr/shifts',
+    'permission' => 'view_shift',
+    'key' => 'shift',
+],
+    [
+    'title' => 'Work Patterns',
+    'icon' => 'fas fa-calendar-alt',
+    'url' => 'hr/work-patterns',
+    'permission' => 'view_work_pattern',
+    'key' => 'work_pattern',
+],
+    [
     'title' => 'Locations',
     'icon' => 'fas fa-map-marker-alt',
     'url' => 'hr/locations',
@@ -28,27 +49,6 @@ return [
     'url' => 'hr/job-titles',
     'permission' => 'view_job_title',
     'key' => 'job_title',
-],
-    [
-    'title' => 'Shifts',
-    'icon' => 'fas fa-business-time',
-    'url' => 'hr/shifts',
-    'permission' => 'view_shift',
-    'key' => 'shift',
-],
-    [
-    'title' => 'Attendance Policies',
-    'icon' => 'fas fa-file-contract',
-    'url' => 'hr/attendance-policies',
-    'permission' => 'view_attendance_policy',
-    'key' => 'attendance_policy',
-],
-    [
-    'title' => 'Work Patterns',
-    'icon' => 'fas fa-calendar-alt',
-    'url' => 'hr/work-patterns',
-    'permission' => 'view_work_pattern',
-    'key' => 'work_pattern',
 ],
     [
     'title' => 'Employees',

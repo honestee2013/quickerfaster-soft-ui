@@ -11,6 +11,8 @@ use App\Modules\Hr\Models\AttendanceSession;
 use App\Modules\Hr\Models\AttendanceAdjustment;
 use App\Modules\Hr\Models\LeaveRequest;
 use App\Modules\Hr\Models\Shift;
+use App\Modules\Hr\Models\AttendancePolicy;
+use App\Modules\Hr\Models\WorkPattern;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -131,6 +133,16 @@ class Attendance extends Model
     public function shift()
     {
         return $this->belongsTo(\App\Modules\Hr\Models\Shift::class, 'shift_id', 'id');
+    }
+
+    public function attendancePolicy()
+    {
+        return $this->belongsTo(\App\Modules\Hr\Models\AttendancePolicy::class, 'attendance_policy_id', 'id');
+    }
+
+    public function workPattern()
+    {
+        return $this->belongsTo(\App\Modules\Hr\Models\WorkPattern::class, 'work_pattern_id', 'id');
     }
 
     /**

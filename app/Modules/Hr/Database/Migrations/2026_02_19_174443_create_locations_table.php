@@ -32,6 +32,8 @@ return new class extends Migration
             $table->decimal('latitude', 10, 8)->nullable();
             $table->decimal('longitude', 11, 8)->nullable();
             $table->decimal('geofence_radius', 6, 2)->default(100)->nullable();
+            $table->foreignId('default_attendance_policy_id')->nullable()->constrained('attendance_policies', 'id')->onDelete('set null');
+            $table->foreignId('default_work_pattern_id')->nullable()->constrained('work_patterns', 'id')->onDelete('set null');
             $table->string('external_id')->nullable();
             $table->datetime('last_synced_at')->nullable();
             $table->integer('employee_count')->default(0);
